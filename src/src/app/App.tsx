@@ -79,7 +79,7 @@ export function App() {
                 E-Mail: <a href={`mailto:${siteContent.contactEmail}`}>{siteContent.contactEmail}</a>
               </p>
               <p>
-                Dieses Setup ist bewusst einfach. Die Implementierung hinter dem Formular ist über ein Service-Interface gekapselt und kann später ersetzt werden.
+                Dieses Setup ist bewusst einfach. Die Implementierung kann später ersetzt werden.
               </p>
             </div>
 
