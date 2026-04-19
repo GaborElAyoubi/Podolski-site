@@ -1,0 +1,24 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.feather {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  z-index: 1;
+}
+
+.heart-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
