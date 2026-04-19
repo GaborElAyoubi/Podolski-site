@@ -1,47 +1,21 @@
-"use client";
+import './Header.css';
 
-import { useEffect, useState } from "react";
-import "./Header.css";
+interface HeaderProps {
+  scrolled: boolean;
+}
 
-export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 120);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export function Header({ scrolled }: HeaderProps) {
   return (
-    <>
-      <header className={`site-header ${scrolled ? "visible" : ""}`}>
-        <div className="site-header-inner">
-          <span>Berührung</span>
-          <nav>
-            <a href="#about">About</a>
-            <a href="#kontakt">Kontakt</a>
-          </nav>
-        </div>
-      </header>
+    <header className={`site-header ${scrolled ? 'visible' : ''}`}>
+      <div className="site-header-inner">
+        <a className="site-brand" href="#top">
+          Beruhrung
+        </a>
 
-      <main>
-        <section className={`hero ${scrolled ? "hero-small" : ""}`}>
-          <div className="hero-center">
-            <h1>Berührung</h1>
-            <p>Text hier</p>
-          </div>
-        </section>
-
-        <section className="content">
-          <h2 id="about">About</h2>
-          <p>Mehr Inhalt ...</p>
-          <div style={{ height: "150vh" }} />
-        </section>
-      </main>
-    </>
+        <nav className="site-nav">
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
   );
 }

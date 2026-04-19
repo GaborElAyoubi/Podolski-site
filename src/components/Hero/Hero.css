@@ -1,0 +1,91 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 4rem;
+  transition:
+    padding 0.45s ease,
+    transform 0.45s ease,
+    opacity 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero-small {
+  padding-top: 6.5rem;
+  padding-bottom: 4rem;
+  align-items: flex-start;
+}
+
+.hero-center {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  z-index: 3;
+  transform: translateY(-2vh);
+  transition: transform 0.45s ease, gap 0.45s ease;
+}
+
+.hero.hero-small .hero-center {
+  gap: 0.8rem;
+  transform: translateY(0) scale(0.72);
+  transform-origin: top center;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  transition: font-size 0.45s ease, letter-spacing 0.45s ease, opacity 0.3s ease;
+}
+
+.hero.hero-small .hero-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: 0.12em;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  justify-items: left;
+  gap: 0.75rem;
+  transition: opacity 0.25s ease, transform 0.35s ease;
+}
+
+.hero.hero-small .hero-list {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.hero-list li {
+  position: relative;
+  padding-left: 2.2rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.2;
+  color: rgba(20, 20, 20, 0.88);
+}
+
+.hero-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  transform: translateY(-50%);
+
+  background-image: url("/public/images/herz.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
