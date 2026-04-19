@@ -13,12 +13,6 @@ export interface StepItem {
   description: string;
 }
 
-export interface ContactPayload {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export interface SiteContent {
   brandName: string;
   heroTitle: string;
@@ -31,8 +25,5 @@ export interface SiteContent {
   offers: OfferItem[];
   processTitle: string;
   process: StepItem[];
-  contactTitle: string;
-  contactText: string;
-  contactEmail: string;
   navigation: NavigationItem[];
 }
