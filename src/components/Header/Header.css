@@ -2,25 +2,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   z-index: 1000;
 
   opacity: 0;
   transform: translateY(-100%);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
 
   background: rgba(255, 248, 240, 0.72);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(92, 45, 25, 0.08);
 }
 
-.site-header.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .site-header-inner {
-  max-width: 1200px;
+  width: min(1200px, 100%);
   margin: 0 auto;
   padding: 1rem 1.5rem;
 

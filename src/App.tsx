@@ -3,28 +3,29 @@ import { Header } from './components/Header/Header';
 import { Hero } from './components/Hero/Hero';
 import { About } from './components/About/About';
 
+const HERO_SHRINK_DISTANCE = 320;
+
 export function App() {
-  const [scrolled, setScrolled] = useState(false);
-  const lastScrollY = useRef(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const nextScrollY = window.scrollY;
-      const isScrollingUp = nextScrollY < lastScrollY.current;
+      if (ticking.current) {
+        return;
+      }
 
-      setScrolled((current) => {
-        if (!current && nextScrollY > 180) {
-          return true;
-        }
+      ticking.current = true;
 
-        if (current && isScrollingUp && nextScrollY < 5) {
-          return false;
-        }
+      window.requestAnimationFrame(() => {
+        const nextProgress = Math.min(
+          Math.max(window.scrollY / HERO_SHRINK_DISTANCE, 0),
+          1,
+        );
 
-        return current;
+        setScrollProgress(nextProgress);
+        ticking.current = false;
       });
-
-      lastScrollY.current = nextScrollY;
     };
 
     handleScroll();
@@ -35,10 +36,10 @@ export function App() {
 
   return (
     <>
-      <Header scrolled={scrolled} />
+      <Header progress={scrollProgress} />
 
       <main>
-        <Hero scrolled={scrolled} />
+        <Hero progress={scrollProgress} />
         <About />
       </main>
     </>

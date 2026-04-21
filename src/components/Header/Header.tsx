@@ -1,12 +1,19 @@
 import './Header.css';
+import type { CSSProperties } from 'react';
 
 interface HeaderProps {
-  scrolled: boolean;
+  progress: number;
 }
 
-export function Header({ scrolled }: HeaderProps) {
+export function Header({ progress }: HeaderProps) {
   return (
-    <header className={`site-header ${scrolled ? 'visible' : ''}`}>
+    <header
+      className="site-header"
+      style={{
+        opacity: progress,
+        transform: `translateY(${(progress - 1) * 100}%)`,
+      } as CSSProperties}
+    >
       <div className="site-header-inner">
         <a className="site-brand" href="#top">
           Berührung

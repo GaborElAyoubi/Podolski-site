@@ -1,22 +1,21 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh + 320px);
   overflow: hidden;
-  padding: 4rem;
-  transition:
-    padding 0.3s ease,
-    transform 0.3s ease,
-    opacity 0.3s ease;
+  width: 100%;
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  min-height: var(--hero-visible-height, 100vh);
+  padding: var(--hero-padding-block, 4rem) var(--hero-padding-inline, 4rem);
+  overflow: hidden;
+  width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.hero.hero-small {
-  padding-top: 6.5rem;
-  padding-bottom: 4rem;
-  align-items: flex-start;
 }
 
 .hero-center {
@@ -26,28 +25,10 @@
   gap: 1.5rem;
   text-align: center;
   z-index: 3;
-  transform: translateY(-2vh);
-  transition: transform 0.45s ease, gap 0.45s ease;
-}
-
-.hero.hero-small .hero-center {
-  gap: 0.8rem;
-  transform: translateY(0) scale(0.72);
+  max-width: 100%;
+  transform: translateY(var(--hero-center-y, -2vh)) scale(var(--hero-center-scale, 1));
   transform-origin: top center;
-}
-
-.hero-title {
-  font-size: clamp(3.5rem, 9vw, 5rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.55);
-  transition: font-size 0.45s ease, letter-spacing 0.45s ease, opacity 0.3s ease;
-}
-
-.hero.hero-small .hero-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  letter-spacing: 0.12em;
+  will-change: transform;
 }
 
 .hero-list {
@@ -58,13 +39,19 @@
   display: grid;
   justify-items: left;
   gap: 0.75rem;
-  transition: opacity 0.25s ease, transform 0.35s ease;
+  opacity: max(var(--hero-list-opacity, 1), 0);
+  transform: translateY(var(--hero-list-y, 0));
+  pointer-events: none;
 }
 
-.hero.hero-small .hero-list {
-  opacity: 0;
-  transform: translateY(-12px);
-  pointer-events: none;
+.hero-title {
+  max-width: 100%;
+  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  overflow-wrap: anywhere;
 }
 
 .hero-list li {
@@ -88,4 +75,15 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (max-width: 640px) {
+  .hero-sticky {
+    padding-inline: min(var(--hero-padding-inline, 4rem), 1.25rem);
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 15vw, 4rem);
+    letter-spacing: 0.04em;
+  }
 }
