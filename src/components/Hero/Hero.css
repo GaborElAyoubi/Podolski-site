@@ -108,8 +108,8 @@
   }
 
   .hero-title {
-    font-size: clamp(2.6rem, 15vw, 4rem);
-    letter-spacing: 0.04em;
+    font-size: clamp(2.15rem, 12vw, 3.35rem);
+    letter-spacing: 0.03em;
   }
 
   .hero-feather {

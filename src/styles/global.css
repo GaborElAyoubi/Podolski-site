@@ -2,9 +2,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --site-header-offset: 72px;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: #41261d;
+  scroll-padding-top: var(--site-header-offset);
 }
 
 body {
@@ -29,6 +34,10 @@ body {
 main {
   min-height: 100vh;
   display: block;
+}
+
+section[id] {
+  scroll-margin-top: var(--site-header-offset);
 }
 
 h1,
@@ -119,5 +128,11 @@ p {
 @media (min-width: 768px) {
   .card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --site-header-offset: 64px;
   }
 }
