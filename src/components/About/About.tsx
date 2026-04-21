@@ -13,7 +13,6 @@ export function About() {
   return (
     <section className="about" id="about">
       <div className="about-card">
-        <p className="about-eyebrow">About</p>
         <h2 className="about-title">Worum es geht:</h2>
         <ul className="about-list">
           {aboutItems.map((item) => (

@@ -13,14 +13,6 @@
   text-align: center;
 }
 
-.about-eyebrow {
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: rgba(65, 38, 29, 0.72);
-}
-
 .about-title {
   max-width: 14ch;
   margin-bottom: 1.25rem;
