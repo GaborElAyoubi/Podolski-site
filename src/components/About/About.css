@@ -1,6 +1,6 @@
 .about {
   position: relative;
-  padding: 4rem 1rem 5rem;
+  padding: 4rem 1rem 12rem;
   display: flex;
   justify-content: center;
 }
@@ -67,7 +67,7 @@
   width: 1.2rem;
   height: 1.2rem;
   transform: translateY(-50%);
-  background-image: url("/public/images/herz.png");
+  background-image: url("../../public/images/herz.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
