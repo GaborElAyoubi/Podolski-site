@@ -1,19 +1,16 @@
 .about {
   position: relative;
   padding: 4rem 1rem 5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .about-card {
   width: min(960px, 100%);
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem);
-  border: 1px solid rgba(255, 248, 240, 0.45);
-  border-radius: 32px;
-  background:
-    linear-gradient(135deg, rgba(255, 248, 240, 0.82), rgba(255, 240, 227, 0.64)),
-    rgba(255, 255, 255, 0.24);
-  box-shadow: 0 24px 60px rgba(92, 45, 25, 0.16);
-  backdrop-filter: blur(16px);
+  display: grid;
+  justify-items: center;
+  text-align: center;
 }
 
 .about-eyebrow {
@@ -49,7 +46,9 @@
   padding: 0;
   margin: 0;
   display: grid;
+  justify-items: left;
   gap: 0.75rem;
+  text-align: left;
 }
 
 .about-list li {

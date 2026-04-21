@@ -9,7 +9,7 @@ export function Header({ scrolled }: HeaderProps) {
     <header className={`site-header ${scrolled ? 'visible' : ''}`}>
       <div className="site-header-inner">
         <a className="site-brand" href="#top">
-          Beruhrung
+          Berührung
         </a>
 
         <nav className="site-nav">
