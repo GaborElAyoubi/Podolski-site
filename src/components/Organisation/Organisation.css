@@ -1,0 +1,77 @@
+.organisation {
+  position: relative;
+  padding: 4rem 1rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.organisation-card {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.85rem;
+}
+
+.organisation-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  color: #4c251b;
+}
+
+.organisation-subtitle {
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(65, 38, 29, 0.72);
+}
+
+.organisation-text {
+  margin: 0;
+  max-width: 62ch;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.8;
+  color: rgba(65, 38, 29, 0.9);
+}
+
+.organisation-list {
+  list-style: none;
+  max-width: 62ch;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  justify-items: left;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.organisation-list li {
+  position: relative;
+  padding-left: 2.2rem;
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  line-height: 1.2;
+  color: rgba(65, 38, 29, 0.9);
+}
+
+.organisation-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  transform: translateY(-50%);
+  background-image: url("../../public/images/herz.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 640px) {
+  .organisation {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+}

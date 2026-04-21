@@ -33,14 +33,14 @@
 .hero-feather-left {
   left: clamp(0.75rem, 5vw, 4rem);
   bottom: clamp(1.25rem, 6vh, 4rem);
-  transform-origin: 35% 65%;
+  transform-origin: 30% 65%;
 }
 
 .hero-feather-right {
   top: clamp(4.5rem, 8vh, 6rem);
   right: clamp(1.5rem, 6vw, 5rem);
   transform: rotate(var(--hero-feather-rotate-right, 238deg)) scale(var(--hero-feather-scale-right, 1));
-  transform-origin: 65% 35%;
+  transform-origin: 60% 35%;
 }
 
 .hero-center {

@@ -9,9 +9,7 @@
   transform: translateY(-100%);
   will-change: opacity, transform;
 
-  background: rgba(255, 248, 240, 0.72);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(92, 45, 25, 0.08);
+  background: transparent;
 }
 
 .site-header-inner {
@@ -39,7 +37,38 @@
 
 .site-nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  transition: color 160ms ease, text-shadow 160ms ease, opacity 160ms ease;
+}
+
+.site-nav a:hover {
+  color: rgba(255, 255, 235, 0.96);
+  text-shadow: 0 10px 24px rgba(255, 243, 190, 0.26);
+}
+
+.site-nav a:focus-visible {
+  outline: 2px solid rgba(255, 255, 235, 0.85);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+@keyframes nav-blink {
+  0% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.site-nav a:active {
+  animation: nav-blink 220ms ease-out 1;
 }
 
 @media (max-width: 640px) {

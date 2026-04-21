@@ -1,6 +1,6 @@
 .about {
   position: relative;
-  padding: 4rem 1rem 12rem;
+  padding: 4rem 1rem 6rem;
   display: flex;
   justify-content: center;
 }
@@ -14,67 +14,49 @@
 }
 
 .about-title {
-  max-width: 14ch;
-  margin-bottom: 1.25rem;
+  margin: 0;
   font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 0.95;
+  line-height: 1.05;
   color: #4c251b;
 }
 
-.about-text {
+.about-eyebrow {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(65, 38, 29, 0.72);
+}
+
+.about-lede {
+  margin: 1.5rem 0 0;
   max-width: 62ch;
+  font-size: clamp(1.05rem, 1.9vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(65, 38, 29, 0.92);
+}
+
+.about-body {
+  margin-top: 1.25rem;
+  max-width: 62ch;
+  text-align: left;
+  display: grid;
+  gap: 1rem;
+}
+
+.about-body p {
+  margin: 0;
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   line-height: 1.8;
   color: rgba(65, 38, 29, 0.9);
 }
 
-.about-text + .about-text {
-  margin-top: 1rem;
-}
-
-.about-list {
-  list-style: none;
-  max-width: 62ch;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  justify-items: left;
-  gap: 0.75rem;
-  text-align: left;
-}
-
-.about-list li {
-  position: relative;
-  padding-left: 2.2rem;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  line-height: 1.2;
-  color: rgba(65, 38, 29, 0.9);
-}
-
-.about-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  transform: translateY(-50%);
-  background-image: url("../../public/images/herz.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.about-thanks {
+  font-weight: 700;
 }
 
 @media (max-width: 640px) {
   .about {
-    padding: 2.5rem 1rem 3.5rem;
-  }
-
-  .about-card {
-    border-radius: 24px;
-  }
-
-  .about-title {
-    max-width: none;
+    padding: 2.5rem 1rem 4rem;
   }
 }

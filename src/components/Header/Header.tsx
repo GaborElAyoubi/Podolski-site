@@ -20,6 +20,8 @@ export function Header({ progress }: HeaderProps) {
         </a>
 
         <nav className="site-nav">
+          <a href="#concept">Concept</a>
+          <a href="#organisation">Organisation</a>
           <a href="#about">About</a>
         </nav>
       </div>
