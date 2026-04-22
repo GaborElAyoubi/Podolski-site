@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Header } from './components/Header/Header';
-import { Hero } from './components/Hero/Hero';
-import { Concept } from './components/Concept/Concept';
-import { Organisation } from './components/Organisation/Organisation';
-import { About } from './components/About/About';
 import { Footer } from './components/Footer/Footer';
-import { LegalPage, type LegalPageKind } from './components/LegalPage/LegalPage';
+import { Hero } from './sections/Hero/Hero';
+import { Concept } from './sections/Concept/Concept';
+import { Signup } from './sections/Signup/Signup';
+import { About } from './sections/About/About';
+import { ImpressumPage } from './pages/ImpressumPage/ImpressumPage';
+import { DatenschutzPage } from './pages/DatenschutzPage/DatenschutzPage';
+
+type LegalPageKind = 'impressum' | 'datenschutz';
 
 const HERO_SHRINK_DISTANCE = 320;
 
@@ -93,12 +96,16 @@ export function App() {
 
       <main className="app-main">
         {legalPage ? (
-          <LegalPage page={legalPage} />
+          legalPage === 'impressum' ? (
+            <ImpressumPage />
+          ) : (
+            <DatenschutzPage />
+          )
         ) : (
           <>
             <Hero progress={scrollProgress} />
             <Concept />
-            <Organisation />
+            <Signup />
             <About />
           </>
         )}

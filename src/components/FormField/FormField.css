@@ -1,0 +1,27 @@
+.form-field {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 700;
+  color: rgba(65, 38, 29, 0.9);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid rgba(76, 37, 27, 0.22);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 248, 240, 0.78);
+  color: #41261d;
+  font: inherit;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 3px solid rgba(244, 210, 31, 0.45);
+  border-color: rgba(76, 37, 27, 0.55);
+}
