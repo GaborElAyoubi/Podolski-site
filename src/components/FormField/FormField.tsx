@@ -8,16 +8,17 @@ interface BaseFormFieldProps {
 type FormFieldProps =
   | (BaseFormFieldProps &
       InputHTMLAttributes<HTMLInputElement> & {
-        rows?: never;
+        kind: 'input';
       })
   | (BaseFormFieldProps &
       TextareaHTMLAttributes<HTMLTextAreaElement> & {
+        kind: 'textarea';
         rows: number;
       });
 
 export function FormField(props: FormFieldProps) {
-  if (typeof props.rows === 'number') {
-    const { label, rows, ...textareaProps } = props;
+  if (props.kind === 'textarea') {
+    const { kind: _kind, label, rows, ...textareaProps } = props;
 
     return (
       <label className="form-field">
@@ -27,7 +28,7 @@ export function FormField(props: FormFieldProps) {
     );
   }
 
-  const { label, ...inputProps } = props;
+  const { kind: _kind, label, ...inputProps } = props;
 
   return (
     <label className="form-field">

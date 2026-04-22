@@ -1,5 +1,5 @@
-import { Button } from '../../components/Button/Button';
-import { FormField } from '../../components/FormField/FormField';
+import { Button } from '@/components/Button/Button';
+import { FormField } from '@/components/FormField/FormField';
 import './Signup.css';
 
 export function Signup() {
@@ -13,15 +13,28 @@ export function Signup() {
         </p>
 
         <form className="signup-form" action="mailto:" method="post">
-          <FormField label="Name" name="name" autoComplete="name" required />
           <FormField
+            kind="input"
+            label="Name"
+            name="name"
+            autoComplete="name"
+            required
+          />
+          <FormField
+            kind="input"
             label="Email"
             name="email"
             type="email"
             autoComplete="email"
             required
           />
-          <FormField label="Kurznachricht" name="note" rows={5} required />
+          <FormField
+            kind="textarea"
+            label="Kurznachricht"
+            name="note"
+            rows={5}
+            required
+          />
 
           <Button type="submit">Anmelden</Button>
         </form>

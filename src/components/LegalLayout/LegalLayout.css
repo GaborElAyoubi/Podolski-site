@@ -36,24 +36,6 @@
   color: #4c251b;
 }
 
-.legal-section {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.legal-section h2 {
-  margin: 0;
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
-  color: #4c251b;
-}
-
-.legal-section p {
-  margin: 0;
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
-  line-height: 1.75;
-  color: rgba(65, 38, 29, 0.92);
-}
-
 @media (max-width: 640px) {
   .legal-page {
     padding: calc(var(--site-header-offset) + 2rem) 1rem 4rem;

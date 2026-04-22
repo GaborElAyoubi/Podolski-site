@@ -1,3 +1,4 @@
+import { legalRoutes } from '@/routing/routes';
 import './Footer.css';
 
 export function Footer() {
@@ -9,8 +10,11 @@ export function Footer() {
         </a>
 
         <nav className="site-footer-nav" aria-label="Rechtliches">
-          <a href="#/impressum">Impressum</a>
-          <a href="#/datenschutz">Datenschutz</a>
+          {legalRoutes.map((route) => (
+            <a key={route.id} href={route.href}>
+              {route.label}
+            </a>
+          ))}
         </nav>
       </div>
     </footer>

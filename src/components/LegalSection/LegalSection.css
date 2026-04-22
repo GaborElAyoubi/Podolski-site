@@ -1,0 +1,17 @@
+.legal-section {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.legal-section h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  color: #4c251b;
+}
+
+.legal-section p {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  line-height: 1.75;
+  color: rgba(65, 38, 29, 0.92);
+}
