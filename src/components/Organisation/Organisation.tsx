@@ -22,7 +22,7 @@ export function Organisation() {
           </label>
 
           <label className="organisation-field">
-            <span>Short note</span>
+            <span>Kurznachricht</span>
             <textarea name="note" rows={5} required />
           </label>
 
