@@ -39,7 +39,7 @@ export function Header({ progress }: HeaderProps) {
 
         <nav className="site-nav site-nav-desktop">
           <a href="#concept">Concept</a>
-          <a href="#organisation">Organisation</a>
+          <a href="#anmelden">Anmelden</a>
           <a href="#about">About</a>
         </nav>
 
@@ -72,8 +72,8 @@ export function Header({ progress }: HeaderProps) {
         <a href="#concept" onClick={() => setIsMenuOpen(false)}>
           Concept
         </a>
-        <a href="#organisation" onClick={() => setIsMenuOpen(false)}>
-          Organisation
+        <a href="#anmelden" onClick={() => setIsMenuOpen(false)}>
+          Anmelden
         </a>
         <a href="#about" onClick={() => setIsMenuOpen(false)}>
           About

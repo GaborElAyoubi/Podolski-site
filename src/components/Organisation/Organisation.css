@@ -11,23 +11,17 @@
   display: grid;
   justify-items: center;
   text-align: center;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .organisation-title {
   margin: 0;
+  max-width: 16ch;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.05;
   color: #4c251b;
 }
 
-.organisation-subtitle {
-  margin: 1rem 0 0;
-  font-size: 1.1rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(65, 38, 29, 0.72);
-}
 
 .organisation-text {
   margin: 0;
@@ -37,37 +31,56 @@
   color: rgba(65, 38, 29, 0.9);
 }
 
-.organisation-list {
-  list-style: none;
-  max-width: 62ch;
-  padding: 0;
-  margin: 0;
+.organisation-form {
+  width: min(560px, 100%);
+  margin-top: 1rem;
   display: grid;
-  justify-items: left;
-  gap: 0.75rem;
+  gap: 1rem;
   text-align: left;
 }
 
-.organisation-list li {
-  position: relative;
-  padding-left: 2.2rem;
-  font-size: clamp(1.25rem, 3vw, 1.55rem);
-  line-height: 1.2;
+.organisation-field {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 700;
   color: rgba(65, 38, 29, 0.9);
 }
 
-.organisation-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  transform: translateY(-50%);
-  background-image: url("../../public/images/herz.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.organisation-field input,
+.organisation-field textarea {
+  width: 100%;
+  border: 1px solid rgba(76, 37, 27, 0.22);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 248, 240, 0.78);
+  color: #41261d;
+  font: inherit;
+}
+
+.organisation-field textarea {
+  resize: vertical;
+}
+
+.organisation-field input:focus,
+.organisation-field textarea:focus {
+  outline: 3px solid rgba(244, 210, 31, 0.45);
+  border-color: rgba(76, 37, 27, 0.55);
+}
+
+.organisation-button {
+  justify-self: start;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  background: #41261d;
+  color: #fff7f0;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.organisation-button:hover {
+  background: #4c251b;
 }
 
 @media (max-width: 640px) {
