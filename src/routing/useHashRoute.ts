@@ -3,12 +3,13 @@ import { getLegalRouteFromHash, type LegalRoute } from '@/routing/routes';
 
 export function useHashRoute() {
   const [legalRoute, setLegalRoute] = useState<LegalRoute | null>(() =>
-    getLegalRouteFromHash(),
+    getLegalRouteFromHash(window.location.hash),
   );
 
   useEffect(() => {
     const handleHashChange = () => {
-      const nextLegalRoute = getLegalRouteFromHash();
+      const nextHash = window.location.hash;
+      const nextLegalRoute = getLegalRouteFromHash(nextHash);
 
       setLegalRoute(nextLegalRoute);
 
@@ -22,7 +23,7 @@ export function useHashRoute() {
       }
 
       window.requestAnimationFrame(() => {
-        const targetId = window.location.hash.slice(1);
+        const targetId = nextHash.slice(1);
         const targetElement = targetId
           ? document.getElementById(targetId)
           : null;

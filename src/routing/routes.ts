@@ -19,9 +19,9 @@ export const legalRoutes = [
   },
 ] satisfies LegalRouteConfig[];
 
-export function getLegalRouteFromHash(): LegalRoute | null {
+export function getLegalRouteFromHash(hash: string): LegalRoute | null {
   const route = legalRoutes.find((legalRoute) => {
-    return legalRoute.href === window.location.hash;
+    return legalRoute.href === hash;
   });
 
   return route?.id ?? null;

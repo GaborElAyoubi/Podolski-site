@@ -20,27 +20,28 @@ Eine kleine, sauber strukturierte React + TypeScript Website für Render.
 
 ```text
 src/
-  app/                    # App-Komposition
-  components/ui/          # Wiederverwendbare UI-Bausteine
+  components/             # Wiederverwendbare UI-Bausteine
   content/                # Inhalt / Content-Daten
-  features/contact/       # Feature-spezifische Logik
+  hooks/                  # Wiederverwendbare React-Hooks
+  pages/                  # Seiten
+  routing/                # Hash-Routing
+  sections/               # Startseiten-Abschnitte
   styles/                 # Globale Styles
-  types/                  # Zentrale Typen
 ```
 
 ## Erweiterungsideen
 
 ### Formular später anpassen
-Aktuell wird `mailto:` über ein Service-Interface verwendet.
+Aktuell ist die Empfängeradresse in `src/content/siteContent.ts` zentral konfiguriert. Solange sie leer ist, bleibt der Submit-Button deaktiviert.
 
-Später kannst du in `src/features/contact/services/contactService.ts` leicht umstellen auf:
+Später kannst du die Anmeldung leicht umstellen auf:
 - Formspree
 - Render Web Service API
 - Supabase Edge Function
 - eigenes Backend
 
 ### Inhalte pflegen
-Aktuell kommen die Inhalte aus `src/content/siteContent.ts`.
+Geteilte Inhalte wie Brand, Navigation und Formular-Konfiguration kommen aus `src/content/siteContent.ts`.
 
 Später kannst du diese Datenquelle ersetzen durch:
 - JSON-Dateien
@@ -68,4 +69,3 @@ npm run build
 - Repo verbinden
 - Build Command: `npm run build`
 - Publish Directory: `dist`
-

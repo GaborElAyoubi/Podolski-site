@@ -1,8 +1,11 @@
 import { Button } from '@/components/Button/Button';
 import { FormField } from '@/components/FormField/FormField';
+import { getSignupMailtoHref } from '@/content/siteContent';
 import './Signup.css';
 
 export function Signup() {
+  const signupMailtoHref = getSignupMailtoHref();
+
   return (
     <section className="signup" id="anmelden">
       <div className="signup-card">
@@ -12,7 +15,16 @@ export function Signup() {
           kurze verbindliche Anmeldung.
         </p>
 
-        <form className="signup-form" action="mailto:" method="post">
+        <form
+          className="signup-form"
+          action={signupMailtoHref}
+          method="post"
+          onSubmit={(event) => {
+            if (!signupMailtoHref) {
+              event.preventDefault();
+            }
+          }}
+        >
           <FormField
             kind="input"
             label="Name"
@@ -36,7 +48,9 @@ export function Signup() {
             required
           />
 
-          <Button type="submit">Anmelden</Button>
+          <Button type="submit" disabled={!signupMailtoHref}>
+            Anmelden
+          </Button>
         </form>
       </div>
     </section>

@@ -13,6 +13,15 @@
   background: #4c251b;
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.button:disabled:hover {
+  background: #41261d;
+}
+
 .button:focus-visible {
   outline: 3px solid rgba(244, 210, 31, 0.45);
   outline-offset: 3px;

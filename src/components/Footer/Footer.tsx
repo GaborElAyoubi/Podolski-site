@@ -1,4 +1,5 @@
 import { legalRoutes } from '@/routing/routes';
+import { siteContent } from '@/content/siteContent';
 import './Footer.css';
 
 export function Footer() {
@@ -6,7 +7,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <a className="site-footer-brand" href="#top">
-          Berührung
+          {siteContent.brandName}
         </a>
 
         <nav className="site-footer-nav" aria-label="Rechtliches">

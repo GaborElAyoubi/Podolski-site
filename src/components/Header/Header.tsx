@@ -1,5 +1,6 @@
 import './Header.css';
 import { useEffect, useId, useState, type CSSProperties } from 'react';
+import { siteContent } from '@/content/siteContent';
 
 interface HeaderProps {
   progress: number;
@@ -34,13 +35,15 @@ export function Header({ progress }: HeaderProps) {
     >
       <div className="site-header-inner">
         <a className="site-brand" href="#top">
-          Berührung
+          {siteContent.brandName}
         </a>
 
         <nav className="site-nav site-nav-desktop">
-          <a href="#concept">Concept</a>
-          <a href="#anmelden">Anmelden</a>
-          <a href="#about">About</a>
+          {siteContent.mainNavigation.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <button
@@ -69,15 +72,15 @@ export function Header({ progress }: HeaderProps) {
         className={`site-nav-mobile${isMenuOpen ? ' is-open' : ''}`}
         aria-label="Site"
       >
-        <a href="#concept" onClick={() => setIsMenuOpen(false)}>
-          Concept
-        </a>
-        <a href="#anmelden" onClick={() => setIsMenuOpen(false)}>
-          Anmelden
-        </a>
-        <a href="#about" onClick={() => setIsMenuOpen(false)}>
-          About
-        </a>
+        {siteContent.mainNavigation.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
     </header>
   );
