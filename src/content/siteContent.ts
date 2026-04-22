@@ -20,12 +20,6 @@ export const siteContent = {
     },
   ] satisfies NavigationItem[],
   signup: {
-    recipientEmail: '',
+    endpoint: '/api/contact',
   },
 };
-
-export function getSignupMailtoHref() {
-  return siteContent.signup.recipientEmail
-    ? `mailto:${siteContent.signup.recipientEmail}`
-    : undefined;
-}

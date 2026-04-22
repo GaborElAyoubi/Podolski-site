@@ -1,10 +1,55 @@
+import { useState, type FormEvent } from 'react';
 import { Button } from '@/components/Button/Button';
 import { FormField } from '@/components/FormField/FormField';
-import { getSignupMailtoHref } from '@/content/siteContent';
+import { siteContent } from '@/content/siteContent';
 import './Signup.css';
 
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export function Signup() {
-  const signupMailtoHref = getSignupMailtoHref();
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitStatus('submitting');
+    setStatusMessage('');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(siteContent.signup.endpoint, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          note: formData.get('note'),
+          website: formData.get('website'),
+        }),
+      });
+
+      const payload = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(payload.message ?? 'Die Nachricht konnte nicht gesendet werden.');
+      }
+
+      form.reset();
+      setSubmitStatus('success');
+      setStatusMessage(payload.message ?? 'Danke für deine Nachricht.');
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : 'Die Nachricht konnte nicht gesendet werden.',
+      );
+    }
+  };
 
   return (
     <section className="signup" id="anmelden">
@@ -17,14 +62,15 @@ export function Signup() {
 
         <form
           className="signup-form"
-          action={signupMailtoHref}
-          method="post"
-          onSubmit={(event) => {
-            if (!signupMailtoHref) {
-              event.preventDefault();
-            }
-          }}
+          onSubmit={handleSubmit}
         >
+          <input
+            className="signup-honeypot"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+          />
           <FormField
             kind="input"
             label="Name"
@@ -48,9 +94,19 @@ export function Signup() {
             required
           />
 
-          <Button type="submit" disabled={!signupMailtoHref}>
-            Anmelden
+          <Button type="submit" disabled={submitStatus === 'submitting'}>
+            {submitStatus === 'submitting' ? 'Wird gesendet...' : 'Anmelden'}
           </Button>
+
+          {statusMessage && (
+            <p
+              className={`signup-status signup-status-${submitStatus}`}
+              role={submitStatus === 'error' ? 'alert' : 'status'}
+              aria-live="polite"
+            >
+              {statusMessage}
+            </p>
+          )}
         </form>
       </div>
     </section>

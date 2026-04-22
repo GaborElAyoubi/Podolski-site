@@ -42,6 +42,28 @@
   justify-self: start;
 }
 
+.signup-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.signup-status {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.signup-status-success {
+  color: #2f4f25;
+}
+
+.signup-status-error {
+  color: #7a1f1f;
+}
+
 @media (max-width: 640px) {
   .signup {
     padding: 2.5rem 1rem 3.5rem;

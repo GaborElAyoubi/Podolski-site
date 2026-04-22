@@ -31,14 +31,20 @@ src/
 
 ## Erweiterungsideen
 
-### Formular später anpassen
-Aktuell ist die Empfängeradresse in `src/content/siteContent.ts` zentral konfiguriert. Solange sie leer ist, bleibt der Submit-Button deaktiviert.
+### Formular konfigurieren
+Das Formular sendet an `/api/contact`. Der Node-Server in `server/index.mjs` verschickt die E-Mail über Resend.
 
-Später kannst du die Anmeldung leicht umstellen auf:
-- Formspree
-- Render Web Service API
-- Supabase Edge Function
-- eigenes Backend
+Für Render als Web Service brauchst du diese Environment Variables:
+
+```text
+RESEND_API_KEY=...
+MAIL_FROM=Beruehrung <onboarding@resend.dev>
+MAIL_TO=deine-adresse@example.com
+```
+
+Siehe auch `.env.example`.
+
+Sobald du eine eigene Absenderdomain bei Resend verifiziert hast, ersetzt du `MAIL_FROM` durch eine Adresse deiner Domain.
 
 ### Inhalte pflegen
 Geteilte Inhalte wie Brand, Navigation und Formular-Konfiguration kommen aus `src/content/siteContent.ts`.
@@ -56,6 +62,13 @@ npm install
 npm run dev
 ```
 
+Der Produktionsserver wird nach einem Build gestartet:
+
+```bash
+npm run build
+npm run start
+```
+
 ## Build
 
 ```bash
@@ -65,7 +78,7 @@ npm run build
 ## Render Deploy
 
 - Repo auf GitHub pushen
-- In Render: New + > Static Site
+- In Render: New + > Web Service
 - Repo verbinden
 - Build Command: `npm run build`
-- Publish Directory: `dist`
+- Start Command: `npm run start`
