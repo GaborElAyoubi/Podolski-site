@@ -51,9 +51,19 @@ body::before {
   min-height: 100vh;
 }
 
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   min-height: 100vh;
   display: block;
+}
+
+.app-main {
+  flex: 1;
 }
 
 section[id] {
