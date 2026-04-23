@@ -1,5 +1,5 @@
 import './Header.css';
-import { useEffect, useId, useState, type CSSProperties } from 'react';
+import { useEffect, useId, useState, type CSSProperties, type MouseEvent } from 'react';
 import { siteContent } from '@/content/siteContent';
 
 interface HeaderProps {
@@ -9,6 +9,35 @@ interface HeaderProps {
 export function Header({ progress }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuId = useId();
+
+  const scrollSectionToCenter = (href: `#${string}`) => {
+    const targetId = href.slice(1);
+    const target = document.getElementById(targetId);
+    const contentTarget = target?.firstElementChild instanceof HTMLElement ? target.firstElementChild : target;
+    const sectionOffset = href === '#anmelden' || href === '#about' ? 56 : 0;
+
+    if (!contentTarget) {
+      return;
+    }
+
+    const { top, height } = contentTarget.getBoundingClientRect();
+    const targetTop = window.scrollY + top;
+    const centeredTop = targetTop - (window.innerHeight - height) / 2 - sectionOffset;
+    const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+    const nextScrollTop = Math.max(0, Math.min(centeredTop, maxScrollTop));
+
+    window.history.replaceState(null, '', href);
+    window.scrollTo({
+      top: nextScrollTop,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleNavClick = (href: `#${string}`) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollSectionToCenter(href);
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -40,7 +69,7 @@ export function Header({ progress }: HeaderProps) {
 
         <nav className="site-nav site-nav-desktop">
           {siteContent.mainNavigation.map((item) => (
-            <a key={item.href} href={item.href}>
+            <a key={item.href} href={item.href} onClick={handleNavClick(item.href)}>
               {item.label}
             </a>
           ))}
@@ -76,7 +105,7 @@ export function Header({ progress }: HeaderProps) {
           <a
             key={item.href}
             href={item.href}
-            onClick={() => setIsMenuOpen(false)}
+            onClick={handleNavClick(item.href)}
           >
             {item.label}
           </a>
