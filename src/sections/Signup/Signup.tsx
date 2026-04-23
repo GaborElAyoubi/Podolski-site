@@ -9,6 +9,7 @@ type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 export function Signup() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [statusMessage, setStatusMessage] = useState('');
+  const today = new Date().toISOString().split('T')[0];
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,6 +28,7 @@ export function Signup() {
         body: JSON.stringify({
           name: formData.get('name'),
           email: formData.get('email'),
+          preferredDate: formData.get('preferredDate'),
           note: formData.get('note'),
           website: formData.get('website'),
         }),
@@ -87,10 +89,19 @@ export function Signup() {
             required
           />
           <FormField
+            kind="input"
+            label="Wunschdatum"
+            name="preferredDate"
+            type="date"
+            lang="de-CH"
+            min={today}
+            defaultValue={today}
+          />
+          <FormField
             kind="textarea"
             label="Kurznachricht"
             name="note"
-            rows={5}
+            rows={3}
             required
           />
 
