@@ -13,7 +13,7 @@ export function Concept() {
   return (
     <section className="concept" id="concept">
       <div className="concept-card">
-        <h2 className="concept-title">Worum es geht:</h2>
+        <h2 className="concept-title">Worum es geht</h2>
         <ul className="concept-list">
           {conceptItems.map((item) => (
             <li key={item}>{item}</li>

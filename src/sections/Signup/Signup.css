@@ -20,6 +20,10 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.05;
   color: #4c251b;
+  background-image: linear-gradient(to right, #5a2a1f 0%, #b4436c 42%, #e38d43 78%, #f1d25d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .signup-text {
