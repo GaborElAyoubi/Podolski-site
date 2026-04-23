@@ -5,7 +5,6 @@ export function About() {
     <section className="about" id="about">
       <div className="about-card">
         <h2 className="about-title">Entstehung</h2>
-        <p className="about-eyebrow">oder wohl eher «über mich»</p>
 
         <p className="about-lede">
           BERÜHREN ..... Berühren, berührt sein, berührt werden

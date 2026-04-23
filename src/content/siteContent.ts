@@ -7,7 +7,7 @@ export const siteContent = {
   brandName: 'Berührung',
   mainNavigation: [
     {
-      label: 'Concept',
+      label: 'Konzept',
       href: '#concept',
     },
     {
@@ -15,7 +15,7 @@ export const siteContent = {
       href: '#anmelden',
     },
     {
-      label: 'About',
+      label: 'Über mich',
       href: '#about',
     },
   ] satisfies NavigationItem[],

@@ -49,7 +49,7 @@ export function Header({ progress }: HeaderProps) {
         <button
           className="site-menu-button"
           type="button"
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isMenuOpen ? 'Menü schliessen' : 'Menü öffnen'}
           aria-expanded={isMenuOpen}
           aria-controls={menuId}
           onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -70,7 +70,7 @@ export function Header({ progress }: HeaderProps) {
       <nav
         id={menuId}
         className={`site-nav-mobile${isMenuOpen ? ' is-open' : ''}`}
-        aria-label="Site"
+        aria-label="Seitennavigation"
       >
         {siteContent.mainNavigation.map((item) => (
           <a
