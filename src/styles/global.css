@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 :root {
   --site-header-offset: 72px;
-  --font-display: "Dekko", cursive;
+  --font-display: "Zen Maru Gothic", sans-serif;
 }
 
 html {
@@ -82,7 +82,7 @@ p {
 }
 
 .dekko-regular {
-  font-family: "Dekko", cursive;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 400;
   font-style: normal;
 }

@@ -1,0 +1,53 @@
+.falling-feathers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.falling-feather {
+  position: absolute;
+  width: clamp(14rem, 27vw, 24rem);
+  height: auto;
+  opacity: var(--feather-opacity, 0.9);
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+.falling-feather-left {
+  left: 0;
+  top: 0;
+  transform: translate(var(--feather-left-x, 4vw), var(--feather-left-y, -8vh))
+    rotate(var(--feather-left-rotate, -22deg)) scale(var(--feather-left-scale, 1));
+  transform-origin: 30% 65%;
+}
+
+.falling-feather-right {
+  left: 0;
+  top: 0;
+  transform: translate(var(--feather-right-x, 82vw), var(--feather-right-y, 4vh))
+    rotate(var(--feather-right-rotate, 232deg)) scale(var(--feather-right-scale, 1));
+  transform-origin: 60% 35%;
+}
+
+@media (max-width: 640px) {
+  .falling-feather {
+    width: clamp(10rem, 46vw, 16rem);
+  }
+
+  .falling-feather-left {
+    transform: translate(calc(var(--feather-left-x, 4vw) - 8vw), var(--feather-left-y, -8vh))
+      rotate(var(--feather-left-rotate, -22deg)) scale(var(--feather-left-scale, 1));
+  }
+
+  .falling-feather-right {
+    transform: translate(calc(var(--feather-right-x, 82vw) - 10vw), var(--feather-right-y, 4vh))
+      rotate(var(--feather-right-rotate, 232deg)) scale(var(--feather-right-scale, 1));
+  }
+}
+
+@media (max-width: 1366px), (max-height: 900px) {
+  .falling-feather {
+    width: clamp(11rem, 22vw, 19rem);
+  }
+}
