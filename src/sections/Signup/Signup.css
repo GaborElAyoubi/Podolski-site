@@ -31,15 +31,16 @@
 }
 
 .signup-form {
-  width: min(560px, 100%);
-  margin-top: 1rem;
+  width: min(480px, 100%);
+  margin-top: 0.75rem;
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
   text-align: left;
 }
 
 .signup-form .button {
-  justify-self: start;
+  justify-self: center;
+  min-width: 12rem;
 }
 
 .signup-honeypot {
