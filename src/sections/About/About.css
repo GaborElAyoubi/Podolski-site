@@ -60,3 +60,18 @@
     padding: 2rem 1rem 3rem;
   }
 }
+
+@media (max-width: 1366px), (max-height: 900px) {
+  .about {
+    padding: 6rem 1rem 7rem;
+  }
+
+  .about-lede {
+    margin-top: 1rem;
+  }
+
+  .about-body {
+    margin-top: 1rem;
+    gap: 0.8rem;
+  }
+}

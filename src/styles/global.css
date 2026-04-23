@@ -10,7 +10,7 @@
 }
 
 html {
-  font-size: 120%;
+  font-size: 110%;
   scroll-behavior: smooth;
   background-color: #41261d;
   scroll-padding-top: var(--site-header-offset);
@@ -90,5 +90,15 @@ p {
 @media (max-width: 640px) {
   :root {
     --site-header-offset: 64px;
+  }
+}
+
+@media (max-width: 1366px), (max-height: 900px) {
+  :root {
+    --site-header-offset: 68px;
+  }
+
+  html {
+    font-size: 100%;
   }
 }

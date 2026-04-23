@@ -70,3 +70,18 @@
     padding: 2rem 1rem 3rem;
   }
 }
+
+@media (max-width: 1366px), (max-height: 900px) {
+  .signup {
+    padding: 6rem 1rem 7rem;
+  }
+
+  .signup-card {
+    gap: 0.8rem;
+  }
+
+  .signup-form {
+    width: min(440px, 100%);
+    gap: 0.65rem;
+  }
+}

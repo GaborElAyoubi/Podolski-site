@@ -247,3 +247,18 @@
     display: block;
   }
 }
+
+@media (max-width: 1366px), (max-height: 900px) {
+  .site-header-inner {
+    padding: 0.85rem 1.1rem;
+  }
+
+  .site-brand {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+  }
+
+  .site-nav {
+    gap: 1.1rem;
+  }
+}

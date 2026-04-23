@@ -126,3 +126,25 @@
     right: -0.25rem;
   }
 }
+
+@media (max-width: 1366px), (max-height: 900px) {
+  .hero-center {
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3.6rem, 9.2vw, 5.2rem);
+  }
+
+  .hero-list {
+    gap: 0.55rem;
+  }
+
+  .hero-list li {
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  }
+
+  .hero-feather {
+    width: clamp(13rem, 28vw, 24rem);
+  }
+}
