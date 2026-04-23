@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 :root {
   --site-header-offset: 72px;
+  --font-display: "Dekko", cursive;
 }
 
 html {
@@ -25,7 +28,7 @@ body {
   );
   background-attachment: fixed;
   color: #41261d;
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-family: var(--font-display);
 }
 
 body::before {
@@ -75,6 +78,12 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+.dekko-regular {
+  font-family: "Dekko", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media (max-width: 640px) {
