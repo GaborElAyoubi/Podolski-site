@@ -5,7 +5,7 @@
 }
 
 :root {
-  --site-header-offset: 72px;
+  --site-header-offset: 82px;
   --font-display: "Zen Maru Gothic", sans-serif;
 }
 
@@ -89,13 +89,13 @@ p {
 
 @media (max-width: 640px) {
   :root {
-    --site-header-offset: 64px;
+    --site-header-offset: 68px;
   }
 }
 
 @media (max-width: 1366px), (max-height: 900px) {
   :root {
-    --site-header-offset: 68px;
+    --site-header-offset: 74px;
   }
 
   html {

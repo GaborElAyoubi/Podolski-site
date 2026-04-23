@@ -60,6 +60,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  width: min(28rem, 100%);
 
   display: grid;
   justify-items: left;
@@ -82,9 +83,21 @@
 .hero-list li {
   position: relative;
   padding-left: 2.2rem;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.4rem, 3.25vw, 1.95rem);
   line-height: 1.2;
   color: rgba(20, 20, 20, 0.88);
+}
+
+.hero-list li:nth-child(1) {
+  margin-left: 0;
+}
+
+.hero-list li:nth-child(2) {
+  margin-left: 2.25rem;
+}
+
+.hero-list li:nth-child(3) {
+  margin-left: 4.5rem;
 }
 
 .hero-list li::before {
@@ -125,6 +138,18 @@
     top: 4.5rem;
     right: -0.25rem;
   }
+
+  .hero-list {
+    width: min(20rem, 100%);
+  }
+
+  .hero-list li:nth-child(2) {
+    margin-left: 1.25rem;
+  }
+
+  .hero-list li:nth-child(3) {
+    margin-left: 2.5rem;
+  }
 }
 
 @media (max-width: 1366px), (max-height: 900px) {
@@ -141,7 +166,15 @@
   }
 
   .hero-list li {
-    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-size: clamp(1.2rem, 2.75vw, 1.6rem);
+  }
+
+  .hero-list li:nth-child(2) {
+    margin-left: 1.75rem;
+  }
+
+  .hero-list li:nth-child(3) {
+    margin-left: 3.5rem;
   }
 
   .hero-feather {
