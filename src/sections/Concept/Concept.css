@@ -1,6 +1,6 @@
 .concept {
   position: relative;
-  padding: 5.5rem 1rem 10rem;
+  padding: 6.5rem 1rem 8rem;
   display: flex;
   justify-content: center;
 }
@@ -15,14 +15,13 @@
 
 .concept-title {
   max-width: 14ch;
-  margin-bottom: 1.25rem;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+  font-weight: 500;
   line-height: 0.95;
-  color: #4c251b;
-  background-image: linear-gradient(to right, #5a2a1f 0%, #b4436c 42%, #e38d43 78%, #f1d25d 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: 0;
+  color: var(--color-ink);
 }
 
 .concept-text {
@@ -50,24 +49,21 @@
 .concept-list li {
   position: relative;
   width: fit-content;
-  padding-left: 2.2rem;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  line-height: 1.2;
-  color: rgba(65, 38, 29, 0.9);
+  padding-left: 1.6rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.32rem);
+  line-height: 1.35;
+  color: var(--color-muted);
 }
 
 .concept-list li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  transform: translateY(-50%);
-  background-image: url("../../public/images/herz.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  top: 0.66em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-clay);
 }
 
 @media (max-width: 640px) {
@@ -76,7 +72,7 @@
   }
 
   .concept-card {
-    border-radius: 24px;
+    border-radius: 0;
   }
 
   .concept-title {

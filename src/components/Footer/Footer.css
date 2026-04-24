@@ -1,7 +1,7 @@
 .site-footer {
   padding: 2rem 1rem;
   color: rgba(255, 248, 240, 0.88);
-  background: rgba(65, 38, 29, 0.78);
+  background: rgba(38, 30, 33, 0.92);
 }
 
 .site-footer-inner {
@@ -20,10 +20,10 @@
 }
 
 .site-footer-brand {
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .site-footer-nav {

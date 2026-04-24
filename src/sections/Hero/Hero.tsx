@@ -12,13 +12,6 @@ type HeroStyle = CSSProperties & {
   '--hero-padding-inline': string;
   '--hero-center-scale': number;
   '--hero-center-y': string;
-  '--hero-list-opacity': number;
-  '--hero-list-y': string;
-  '--hero-feather-opacity': number;
-  '--hero-feather-rotate': string;
-  '--hero-feather-rotate-right': string;
-  '--hero-feather-scale': number;
-  '--hero-feather-scale-right': number;
 };
 
 function clampProgress(progress: number) {
@@ -27,7 +20,6 @@ function clampProgress(progress: number) {
 
 function getHeroStyle(progress: number): HeroStyle {
   const clampedProgress = clampProgress(progress);
-  const rightFeatherProgress = clampProgress((clampedProgress - 0.12) / 0.88);
 
   return {
     '--hero-visible-height': `calc(${100 - clampedProgress * 100}vh + ${4.75 * clampedProgress}rem)`,
@@ -35,13 +27,6 @@ function getHeroStyle(progress: number): HeroStyle {
     '--hero-padding-inline': `${4 - clampedProgress * 2.5}rem`,
     '--hero-center-scale': 1 - clampedProgress * 0.42,
     '--hero-center-y': `${-2 + clampedProgress * 2}vh`,
-    '--hero-list-opacity': 1 - clampedProgress * 1.4,
-    '--hero-list-y': `${clampedProgress * -16}px`,
-    '--hero-feather-opacity': Math.max(1 - clampedProgress * 1.35, 0),
-    '--hero-feather-rotate': `${clampedProgress * 190}deg`,
-    '--hero-feather-rotate-right': `${238 - rightFeatherProgress * 190}deg`,
-    '--hero-feather-scale': 1 - clampedProgress * 0.25,
-    '--hero-feather-scale-right': 1 - rightFeatherProgress * 0.25,
   };
 }
 
@@ -55,27 +40,28 @@ export function Hero({ progress }: HeroProps) {
       style={heroStyle}
     >
       <div className="hero-sticky">
-        <img
-          className="hero-feather hero-feather-left"
-          src={featherImage}
-          alt=""
-          aria-hidden="true"
-        />
-        <img
-          className="hero-feather hero-feather-right"
-          src={featherImage}
-          alt=""
-          aria-hidden="true"
-        />
+        <img className="hero-backdrop-feather" src={featherImage} alt="" aria-hidden="true" />
 
         <div className="hero-center">
-          <h1 className="hero-title">BERÜHRUNG</h1>
+          <p className="hero-kicker">Achtsame Begegnung in Arbon</p>
+          <h1 className="hero-title">Berührung</h1>
+          <p className="hero-lede">
+            Ein Abend für Präsenz, innere Ruhe und Begegnung auf Herzebene.
+          </p>
 
-          <ul className="hero-list">
-            <li>Berühren</li>
-            <li>Berührt sein</li>
-            <li>Berührt werden</li>
-          </ul>
+          <div className="hero-meta" aria-label="Veranstaltungsdetails">
+            <span>19 - 21 Uhr</span>
+            <span>Schloss Arbon</span>
+          </div>
+
+          <div className="hero-actions">
+            <a className="hero-action hero-action-primary" href="#anmelden">
+              Anmelden
+            </a>
+            <a className="hero-action hero-action-secondary" href="#concept">
+              Mehr erfahren
+            </a>
+          </div>
         </div>
       </div>
     </section>

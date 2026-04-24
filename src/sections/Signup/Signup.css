@@ -1,6 +1,6 @@
 .signup {
   position: relative;
-  padding: 8rem 1rem 10rem;
+  padding: 7rem 1rem 9rem;
   display: flex;
   justify-content: center;
 }
@@ -17,21 +17,20 @@
 .signup-title {
   margin: 0;
   max-width: 16ch;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+  font-weight: 500;
   line-height: 1.05;
-  color: #4c251b;
-  background-image: linear-gradient(to right, #5a2a1f 0%, #b4436c 42%, #e38d43 78%, #f1d25d 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: 0;
+  color: var(--color-ink);
 }
 
 .signup-text {
   margin: 0;
   max-width: 62ch;
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-size: clamp(1rem, 1.55vw, 1.08rem);
   line-height: 1.8;
-  color: rgba(65, 38, 29, 0.9);
+  color: var(--color-muted);
 }
 
 .signup-details {
@@ -40,7 +39,7 @@
   display: grid;
   gap: 0.55rem;
   text-align: left;
-  color: rgba(65, 38, 29, 0.92);
+  color: var(--color-muted);
 }
 
 .signup-details div {
@@ -74,11 +73,11 @@
 
 .signup-date-select {
   width: 100%;
-  border: 1px solid rgba(76, 37, 27, 0.22);
-  border-radius: 8px;
+  border: 1px solid rgba(47, 39, 37, 0.18);
+  border-radius: 4px;
   padding: 0.75rem 0.9rem;
-  background: rgba(255, 248, 240, 0.78);
-  color: #41261d;
+  background: rgba(255, 251, 246, 0.72);
+  color: var(--color-ink);
   font: inherit;
 }
 

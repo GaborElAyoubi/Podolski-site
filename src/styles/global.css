@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,30 +6,32 @@
 
 :root {
   --site-header-offset: 82px;
-  --font-display: "Zen Maru Gothic", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --color-ink: #2f2725;
+  --color-muted: rgba(47, 39, 37, 0.7);
+  --color-surface: #f7f0e8;
+  --color-plum: #46313b;
+  --color-clay: #9a665b;
+  --color-sage: #687463;
 }
 
 html {
   font-size: 110%;
   scroll-behavior: smooth;
-  background-color: #41261d;
+  background-color: var(--color-surface);
   scroll-padding-top: var(--site-header-offset);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(
-    to top right,
-    #7b2cbf 0%,
-    #c84fa1 30%,
-    #e77a7a 62%,
-    #f1a64d 82%,
-    #f4d21f 100%
-  );
+  background:
+    linear-gradient(145deg, rgba(247, 240, 232, 0.98) 0%, rgba(227, 210, 200, 0.96) 43%, rgba(181, 142, 131, 0.82) 100%),
+    radial-gradient(circle at 80% 10%, rgba(104, 116, 99, 0.18), transparent 34%);
   background-attachment: fixed;
-  color: #41261d;
-  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-family: var(--font-body);
 }
 
 body::before {
@@ -82,7 +84,7 @@ p {
 }
 
 .dekko-regular {
-  font-family: "Zen Maru Gothic", sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   font-style: normal;
 }

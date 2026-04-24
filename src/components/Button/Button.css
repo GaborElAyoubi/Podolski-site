@@ -1,16 +1,18 @@
 .button {
   border: 0;
-  border-radius: 999px;
-  padding: 0.65rem 1.2rem;
-  background: #41261d;
+  border-radius: 4px;
+  padding: 0.78rem 1.25rem;
+  background: var(--color-plum);
   color: #fff7f0;
   font: inherit;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease, opacity 180ms ease;
 }
 
 .button:hover {
-  background: #4c251b;
+  background: #35242d;
+  transform: translateY(-1px);
 }
 
 .button:disabled {
@@ -19,10 +21,11 @@
 }
 
 .button:disabled:hover {
-  background: #41261d;
+  background: var(--color-plum);
+  transform: none;
 }
 
 .button:focus-visible {
-  outline: 3px solid rgba(244, 210, 31, 0.45);
+  outline: 3px solid rgba(154, 102, 91, 0.34);
   outline-offset: 3px;
 }
