@@ -6,10 +6,38 @@ import './Signup.css';
 
 type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
+const provisionalDates = [
+  {
+    label: '1. Juli',
+    value: '2026-07-01',
+  },
+  {
+    label: '19. August',
+    value: '2026-08-19',
+  },
+  {
+    label: '16. September',
+    value: '2026-09-16',
+  },
+  {
+    label: '7. Oktober',
+    value: '2026-10-07',
+  },
+  {
+    label: '4. November',
+    value: '2026-11-04',
+  },
+  {
+    label: '2. Dezember',
+    value: '2026-12-02',
+  },
+];
+
 export function Signup() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const today = new Date().toISOString().split('T')[0];
+  const [preferredDate, setPreferredDate] = useState(today);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,6 +69,7 @@ export function Signup() {
       }
 
       form.reset();
+      setPreferredDate(today);
       setSubmitStatus('success');
       setStatusMessage(payload.message ?? 'Danke für deine Nachricht.');
     } catch (error) {
@@ -70,6 +99,26 @@ export function Signup() {
           <div>
             <dt>Ort</dt>
             <dd>Schloss Arbon, erste Tür rechts nach Haupteingang</dd>
+          </div>
+          <div>
+            <dt>Prov. Daten</dt>
+            <dd>
+              <label className="signup-date-select-label">
+                <span>Provisorisches Datum wählen</span>
+                <select
+                  className="signup-date-select"
+                  value={preferredDate}
+                  onChange={(event) => setPreferredDate(event.target.value)}
+                >
+                  <option value={today}>Bitte wählen</option>
+                  {provisionalDates.map((date) => (
+                    <option key={date.value} value={date.value}>
+                      {date.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </dd>
           </div>
         </dl>
 
@@ -106,7 +155,8 @@ export function Signup() {
             type="date"
             lang="de-CH"
             min={today}
-            defaultValue={today}
+            value={preferredDate}
+            onChange={(event) => setPreferredDate(event.target.value)}
           />
           <FormField
             kind="textarea"

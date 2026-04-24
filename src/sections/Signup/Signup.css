@@ -63,6 +63,30 @@
   line-height: 1.45;
 }
 
+.signup-date-select-label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.signup-date-select-label span {
+  font-weight: 700;
+}
+
+.signup-date-select {
+  width: 100%;
+  border: 1px solid rgba(76, 37, 27, 0.22);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  background: rgba(255, 248, 240, 0.78);
+  color: #41261d;
+  font: inherit;
+}
+
+.signup-date-select:focus {
+  outline: 3px solid rgba(244, 210, 31, 0.45);
+  border-color: rgba(76, 37, 27, 0.55);
+}
+
 .signup-form {
   width: min(480px, 100%);
   margin-top: 0.75rem;
