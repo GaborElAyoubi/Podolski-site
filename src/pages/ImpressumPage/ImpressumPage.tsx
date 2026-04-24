@@ -5,10 +5,9 @@ const impressumSections = [
   {
     title: 'Angaben zur verantwortlichen Person',
     paragraphs: [
-      '[Name/Firma ergänzen]',
-      '[Strasse und Hausnummer ergänzen]',
-      '[PLZ und Ort ergänzen]',
-      '[Land ergänzen]',
+      'Françoise Podolski',
+      'Haldenstrasse 14b',
+      '9315 Neukirch (Egnach)',
     ],
   },
   {

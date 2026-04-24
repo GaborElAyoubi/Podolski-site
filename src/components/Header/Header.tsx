@@ -54,6 +54,19 @@ export function Header({ progress }: HeaderProps) {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return;
+    }
+
+    const onScroll = () => {
+      setIsMenuOpen(false);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isMenuOpen]);
+
   return (
     <header
       className="site-header"

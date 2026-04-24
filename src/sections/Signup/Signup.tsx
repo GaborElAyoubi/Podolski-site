@@ -62,6 +62,17 @@ export function Signup() {
           kurze verbindliche Anmeldung.
         </p>
 
+        <dl className="signup-details">
+          <div>
+            <dt>Zeit</dt>
+            <dd>19 - 21 Uhr</dd>
+          </div>
+          <div>
+            <dt>Ort</dt>
+            <dd>Schloss Arbon, erste Tür rechts nach Haupteingang</dd>
+          </div>
+        </dl>
+
         <form
           className="signup-form"
           onSubmit={handleSubmit}

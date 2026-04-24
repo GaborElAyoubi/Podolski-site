@@ -45,11 +45,17 @@
 
 @media (max-width: 640px) {
   .site-footer-inner {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
+  .site-footer-brand {
+    display: none;
+  }
+
   .site-footer-nav {
-    justify-content: flex-start;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
   }
 }

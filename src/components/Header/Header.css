@@ -107,22 +107,19 @@
   display: none;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(92, 45, 25, 0.12);
+  width: 40px;
+  height: 40px;
+  border: 0;
   padding: 0;
-  background: rgba(255, 248, 240, 0.66);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 999px;
-  color: #4c251b;
+  background: transparent;
+  border-radius: 0;
+  color: rgba(255, 248, 240, 0.96);
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  transition: color 160ms ease, transform 160ms ease;
 }
 
 .site-menu-button:hover {
-  background: rgba(255, 248, 240, 0.82);
-  border-color: rgba(92, 45, 25, 0.18);
+  color: rgba(255, 255, 235, 1);
   transform: translateY(-1px);
 }
 
@@ -134,10 +131,14 @@
 
 .site-menu-icon {
   position: relative;
-  width: 22px;
-  height: 16px;
+  width: 24px;
+  height: 18px;
   display: block;
+  background: currentColor;
+  background-clip: content-box;
+  padding-block: 8px;
   color: currentColor;
+  transition: background-color 180ms ease;
 }
 
 .site-menu-icon::before,
@@ -160,22 +161,17 @@
   bottom: 0;
 }
 
-.site-menu-icon {
-  box-shadow: 0 7px 0 0 currentColor;
-  transition: box-shadow 180ms ease;
-}
-
 .site-menu-icon.is-open {
-  box-shadow: none;
+  background-color: transparent;
 }
 
 .site-menu-icon.is-open::before {
-  top: 7px;
+  top: 8px;
   transform: rotate(45deg);
 }
 
 .site-menu-icon.is-open::after {
-  bottom: 7px;
+  bottom: 8px;
   transform: rotate(-45deg);
 }
 
@@ -197,8 +193,8 @@
 
 .site-nav-mobile {
   display: none;
-  position: fixed;
-  top: 3.75rem;
+  position: absolute;
+  top: 100%;
   left: 0;
   right: 0;
   width: 100%;
