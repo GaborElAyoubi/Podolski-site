@@ -70,21 +70,19 @@
   position: relative;
   font-size: 1.02rem;
   padding: 0.25rem 0.2rem;
-  border-radius: 10px;
-  transition: color 160ms ease, text-shadow 160ms ease, opacity 160ms ease;
+  transition: color 260ms ease, text-shadow 260ms ease, opacity 260ms ease;
 }
 
 .site-nav a:hover {
   color: rgba(255, 255, 235, 0.96);
-  text-shadow: 0 10px 24px rgba(255, 243, 190, 0.26);
-  background: rgba(255, 243, 190, 0.12);
-  box-shadow: 0 10px 26px rgba(255, 243, 190, 0.18);
+  text-shadow:
+    0 0 10px rgba(255, 248, 210, 0.48),
+    0 8px 24px rgba(255, 243, 190, 0.22);
 }
 
 .site-nav a:focus-visible {
   outline: 2px solid rgba(255, 255, 235, 0.85);
   outline-offset: 4px;
-  border-radius: 6px;
 }
 
 @keyframes nav-blink {
