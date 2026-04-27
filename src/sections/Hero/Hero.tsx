@@ -1,12 +1,14 @@
 import './Hero.css';
 import type { CSSProperties } from 'react';
 import featherImage from '../../public/images/feder.png';
+import { HERO_SHRINK_DISTANCE } from '@/hooks/useHeroScrollProgress';
 
 interface HeroProps {
   progress: number;
 }
 
 type HeroStyle = CSSProperties & {
+  '--hero-scroll-buffer': string;
   '--hero-visible-height': string;
   '--hero-padding-block': string;
   '--hero-padding-inline': string;
@@ -22,6 +24,7 @@ function getHeroStyle(progress: number): HeroStyle {
   const clampedProgress = clampProgress(progress);
 
   return {
+    '--hero-scroll-buffer': `${HERO_SHRINK_DISTANCE}px`,
     '--hero-visible-height': `calc(${100 - clampedProgress * 100}vh + ${4.75 * clampedProgress}rem)`,
     '--hero-padding-block': `${4 - clampedProgress * 3.15}rem`,
     '--hero-padding-inline': `${4 - clampedProgress * 2.5}rem`,

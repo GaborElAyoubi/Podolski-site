@@ -1,12 +1,19 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh + var(--hero-scroll-buffer, 0px));
   overflow: hidden;
   width: 100%;
   color: #f8f0e8;
-  background:
-    linear-gradient(115deg, rgba(38, 30, 33, 0.92) 0%, rgba(70, 49, 59, 0.82) 48%, rgba(154, 102, 91, 0.62) 100%),
-    radial-gradient(circle at 82% 30%, rgba(232, 204, 172, 0.28), transparent 34%);
+  background: transparent;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 82% 30%, rgba(232, 204, 172, 0.28), transparent 34%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero::after {
@@ -16,7 +23,7 @@
   right: 0;
   bottom: 0;
   height: 28vh;
-  background: linear-gradient(to bottom, transparent, rgba(247, 240, 232, 0.9));
+  background: linear-gradient(to bottom, transparent, rgba(243, 210, 51, 0.34));
   pointer-events: none;
   z-index: 2;
 }
@@ -36,15 +43,15 @@
 
 .hero-backdrop-feather {
   position: absolute;
-  right: clamp(-10rem, -8vw, -3rem);
-  bottom: clamp(-8rem, -12vh, -3rem);
-  width: clamp(24rem, 48vw, 46rem);
+  right: clamp(1rem, 5vw, 4rem);
+  bottom: clamp(1.5rem, 8vh, 4rem);
+  width: clamp(18rem, 34vw, 32rem);
   height: auto;
   opacity: 0.22;
   pointer-events: none;
   user-select: none;
   z-index: 1;
-  transform: rotate(24deg);
+  transform: rotate(0deg);
   filter: saturate(0.55) contrast(0.92);
 }
 
@@ -70,13 +77,18 @@
 }
 
 .hero-title {
+  display: inline-block;
   max-width: 9ch;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(5.25rem, 13vw, 10.5rem);
   font-weight: 500;
-  line-height: 0.82;
+  line-height: 0.92;
+  padding-bottom: 0.20was em;
   letter-spacing: 0;
-  color: rgba(255, 249, 241, 0.96);
+  color: transparent;
+  background: linear-gradient(to top right, #fff7d6 0%, #ffe5b7 30%, #ffc7b7 58%, #f6b7f3 82%, #eadfff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   overflow-wrap: normal;
   white-space: nowrap;
 }
@@ -164,9 +176,9 @@
   }
 
   .hero-backdrop-feather {
-    right: -12rem;
-    bottom: 3rem;
-    width: 28rem;
+    right: -1.5rem;
+    bottom: 4rem;
+    width: 18rem;
     opacity: 0.16;
   }
 

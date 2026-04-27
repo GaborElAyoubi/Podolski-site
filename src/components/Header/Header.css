@@ -34,7 +34,7 @@
 
 .site-brand {
   color: rgba(255, 255, 255, 0.96);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 0.02em;
