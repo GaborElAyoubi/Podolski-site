@@ -2,10 +2,6 @@ import type { CSSProperties } from 'react';
 import { HERO_SHRINK_DISTANCE } from '@/hooks/useHeroScrollProgress';
 
 export type HeroStyle = CSSProperties & {
-  '--hero-feather-x': string;
-  '--hero-feather-y': string;
-  '--hero-feather-rotate': string;
-  '--hero-feather-opacity': number;
   '--hero-scroll-buffer': string;
   '--hero-visible-height': string;
   '--hero-padding-block': string;
@@ -20,15 +16,8 @@ export function clampProgress(progress: number) {
 
 export function getHeroStyle(progress: number): HeroStyle {
   const clampedProgress = clampProgress(progress);
-  const featherFallProgress = clampedProgress ** 1.18;
-  const featherDriftProgress = clampedProgress ** 1.52;
-  const featherFadeProgress = clampedProgress ** 1.35;
 
   return {
-    '--hero-feather-x': `${featherDriftProgress * 24}vw`,
-    '--hero-feather-y': `${featherFallProgress * 72}vh`,
-    '--hero-feather-rotate': `${-8 + clampedProgress * 46}deg`,
-    '--hero-feather-opacity': Math.max(0, 0.22 - featherFadeProgress * 0.22),
     '--hero-scroll-buffer': `${HERO_SHRINK_DISTANCE}px`,
     '--hero-visible-height': `calc(${100 - clampedProgress * 100}vh + ${4.75 * clampedProgress}rem)`,
     '--hero-padding-block': `${4 - clampedProgress * 3.15}rem`,

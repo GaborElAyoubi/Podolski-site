@@ -35,13 +35,11 @@
   bottom: clamp(1.5rem, 8vh, 4rem);
   width: clamp(18rem, 34vw, 32rem);
   height: auto;
-  opacity: var(--hero-feather-opacity, 0.22);
+  opacity: 0.22;
   pointer-events: none;
   user-select: none;
   z-index: 1;
-  transform: translate3d(var(--hero-feather-x, 0), var(--hero-feather-y, 0), 0) rotate(var(--hero-feather-rotate, -8deg));
-  transform-origin: center center;
-  will-change: transform, opacity;
+  transform: rotate(0deg);
   filter: saturate(0.55) contrast(0.92);
 }
 
@@ -81,20 +79,6 @@
   background-clip: text;
   overflow-wrap: normal;
   white-space: nowrap;
-  filter: drop-shadow(0 0 0 rgba(255, 246, 206, 0));
-  transition: filter 220ms ease, transform 220ms ease;
-}
-
-.hero-title:hover,
-.hero-title:focus-visible {
-  filter:
-    drop-shadow(0 0 16px rgba(255, 244, 196, 0.55))
-    drop-shadow(0 0 34px rgba(246, 183, 243, 0.38));
-  transform: translateY(-1px);
-}
-
-.hero-title:focus-visible {
-  outline: none;
 }
 
 .hero-lede {
@@ -234,7 +218,6 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-center,
   .hero-backdrop-feather,
-  .hero-title,
   .hero-action {
     transition: none;
   }

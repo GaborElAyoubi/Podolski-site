@@ -26,7 +26,7 @@
   position: relative;
   width: fit-content;
   padding-left: 3.35rem;
-  font-size: clamp(1.05rem, 2.2vw, 1.32rem);
+  font-size: clamp(0.98rem, 1.95vw, 1.2rem);
   line-height: 1.35;
   color: var(--color-muted);
   border-radius: 1rem;
@@ -129,6 +129,6 @@
   }
 
   .concept-list li {
-    font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+    font-size: clamp(1rem, 2.1vw, 1.3rem);
   }
 }

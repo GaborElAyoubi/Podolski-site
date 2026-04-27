@@ -6,8 +6,8 @@
 .signup-text {
   margin: 0;
   max-width: 62ch;
-  font-size: clamp(1rem, 1.55vw, 1.08rem);
-  line-height: 1.8;
+  font-size: clamp(0.95rem, 1.4vw, 1.02rem);
+  line-height: 1.72;
   color: var(--color-muted);
 }
 
@@ -37,7 +37,7 @@
 }
 
 .signup-details dd {
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .signup-date-select-label {
@@ -87,7 +87,7 @@
 
 .signup-status {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
