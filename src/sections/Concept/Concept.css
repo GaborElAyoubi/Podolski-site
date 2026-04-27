@@ -1,6 +1,9 @@
 .concept {
+  --concept-progress: 0;
+  --concept-top-space: 6.5rem;
+  --concept-top-pull: 2.75rem;
   position: relative;
-  padding: 6.5rem 1rem 8rem;
+  padding: calc(var(--concept-top-space) - (var(--concept-top-pull) * var(--concept-progress))) 1rem 8rem;
   display: flex;
   justify-content: center;
 }
@@ -21,7 +24,7 @@
   font-weight: 500;
   line-height: 0.95;
   letter-spacing: 0;
-  color: var(--color-ink);
+  color: var(--color-title);
 }
 
 .concept-text {
@@ -49,26 +52,87 @@
 .concept-list li {
   position: relative;
   width: fit-content;
-  padding-left: 1.6rem;
+  padding-left: 3.35rem;
   font-size: clamp(1.05rem, 2.2vw, 1.32rem);
   line-height: 1.35;
   color: var(--color-muted);
+}
+
+.concept-list-text {
+  display: inline-block;
+  transform-origin: left center;
 }
 
 .concept-list li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.66em;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: var(--color-clay);
+  top: -0.12em;
+  width: 2.7rem;
+  height: 2.7rem;
+  background: url("../../public/images/herz.png") center / contain no-repeat;
+}
+
+.concept-list li.is-pulsing .concept-list-text {
+  animation: concept-text-pulse 900ms ease-in-out 1;
+}
+
+.concept-list li.is-pulsing::before {
+  animation: concept-heart-pulse 900ms ease-in-out 1;
+}
+
+@keyframes concept-text-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  45% {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.015);
+    opacity: 0.96;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes concept-heart-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.92;
+  }
+
+  45% {
+    transform: scale(1.24);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.08);
+    opacity: 0.96;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .concept-list li.is-pulsing .concept-list-text,
+  .concept-list li.is-pulsing::before {
+    animation: none;
+  }
 }
 
 @media (max-width: 640px) {
   .concept {
-    padding: 1.25rem 1rem 3.5rem;
+    --concept-top-space: 1.25rem;
+    --concept-top-pull: 0.75rem;
+    padding-bottom: 3.5rem;
   }
 
   .concept-card {
@@ -82,7 +146,9 @@
 
 @media (max-width: 1366px), (max-height: 900px) {
   .concept {
-    padding: 4.25rem 1rem 7rem;
+    --concept-top-space: 4.25rem;
+    --concept-top-pull: 1.75rem;
+    padding-bottom: 7rem;
   }
 
   .concept-title {

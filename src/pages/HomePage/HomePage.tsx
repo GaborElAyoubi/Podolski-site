@@ -11,7 +11,7 @@ export function HomePage({ scrollProgress }: HomePageProps) {
   return (
     <>
       <Hero progress={scrollProgress} />
-      <Concept />
+      <Concept progress={scrollProgress} />
       <Signup />
       <About />
     </>

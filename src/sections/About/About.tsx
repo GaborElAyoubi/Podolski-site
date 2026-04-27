@@ -6,9 +6,9 @@ export function About() {
       <div className="about-card">
         <h2 className="about-title">Entstehung</h2>
 
-        <p className="about-lede">
+        <h3 className="about-lede">
           BERÜHREN ..... Berühren, berührt sein, berührt werden
-        </p>
+        </h3>
 
         <div className="about-body">
           <p>
