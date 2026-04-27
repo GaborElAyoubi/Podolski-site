@@ -16,18 +16,6 @@
   z-index: 0;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 28vh;
-  background: linear-gradient(to bottom, transparent, rgba(243, 210, 51, 0.34));
-  pointer-events: none;
-  z-index: 2;
-}
-
 .hero-sticky {
   position: sticky;
   top: 0;
@@ -83,7 +71,7 @@
   font-size: clamp(5.25rem, 13vw, 10.5rem);
   font-weight: 500;
   line-height: 0.92;
-  padding-bottom: 0.20was em;
+  padding-bottom: 0.18em;
   letter-spacing: 0;
   color: transparent;
   background: linear-gradient(to top right, #fff7d6 0%, #ffe5b7 30%, #ffc7b7 58%, #f6b7f3 82%, #eadfff 100%);
