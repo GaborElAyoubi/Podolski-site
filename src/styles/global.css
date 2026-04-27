@@ -15,6 +15,15 @@
   --color-plum: #46313b;
   --color-clay: #9a665b;
   --color-sage: #687463;
+  --color-border-soft: rgba(47, 39, 37, 0.18);
+  --focus-outline: 3px solid rgba(154, 102, 91, 0.34);
+  --radius-field: 4px;
+  --radius-pill: 999px;
+  --section-max-width: 960px;
+  --section-padding-inline: 1rem;
+  --section-padding-top: 7rem;
+  --section-padding-bottom: 9rem;
+  --section-gap: 1rem;
 }
 
 html {
@@ -73,6 +82,31 @@ main {
   flex: 1;
 }
 
+.section-shell {
+  position: relative;
+  padding: var(--section-padding-top) var(--section-padding-inline) var(--section-padding-bottom);
+  display: flex;
+  justify-content: center;
+}
+
+.section-stack {
+  width: min(var(--section-max-width), 100%);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--section-gap);
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-title);
+}
+
 section[id] {
   scroll-margin-top: var(--site-header-offset);
 }
@@ -93,12 +127,16 @@ p {
 @media (max-width: 640px) {
   :root {
     --site-header-offset: 68px;
+    --section-padding-top: 2rem;
+    --section-padding-bottom: 3rem;
   }
 }
 
 @media (max-width: 1366px), (max-height: 900px) {
   :root {
     --site-header-offset: 74px;
+    --section-padding-top: 6rem;
+    --section-padding-bottom: 7rem;
   }
 
   html {

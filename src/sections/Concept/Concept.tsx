@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { siteContent } from '@/content/siteContent';
+import { useTimedPulse } from '@/hooks/useTimedPulse';
 import './Concept.css';
 
 const CONCEPT_PULSE_DURATION_MS = 900;
@@ -17,53 +18,25 @@ function clampProgress(progress: number) {
 }
 
 export function Concept({ progress }: ConceptProps) {
-  const conceptItems = [
-    'Öffnung des Herzraums',
-    'Berührt sein auf mehreren Ebenen',
-    'Gefühl von Verbundenheit',
-    'Eigene Grenzen erkennen und achten',
-    'Achtsames Miteinander',
-    'Begegnungen auf Herzebene',
-  ];
-  const [activeItem, setActiveItem] = useState<string | null>(null);
-  const pulseTimeoutRef = useRef<number | null>(null);
+  const { activeKey, triggerPulse } = useTimedPulse(CONCEPT_PULSE_DURATION_MS);
   const conceptStyle: ConceptStyle = {
     '--concept-progress': clampProgress(progress),
   };
 
-  useEffect(() => {
-    return () => {
-      if (pulseTimeoutRef.current !== null) {
-        window.clearTimeout(pulseTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  const triggerPulse = (item: string) => {
-    if (pulseTimeoutRef.current !== null) {
-      window.clearTimeout(pulseTimeoutRef.current);
-    }
-
-    setActiveItem(item);
-    pulseTimeoutRef.current = window.setTimeout(() => {
-      setActiveItem((currentItem) => (currentItem === item ? null : currentItem));
-      pulseTimeoutRef.current = null;
-    }, CONCEPT_PULSE_DURATION_MS);
-  };
-
   return (
-    <section className="concept" id="concept" style={conceptStyle}>
-      <div className="concept-card">
-        <h2 className="concept-title">Worum es geht</h2>
+    <section className="concept section-shell" id="concept" style={conceptStyle}>
+      <div className="concept-card section-stack">
+        <h2 className="concept-title section-title">{siteContent.concept.title}</h2>
         <ul className="concept-list">
-          {conceptItems.map((item) => (
+          {siteContent.concept.items.map((item) => (
             <li
-              key={item}
-              className={activeItem === item ? 'is-pulsing' : undefined}
-              onMouseEnter={() => triggerPulse(item)}
-              onFocus={() => triggerPulse(item)}
+              key={item.text}
+              className={activeKey === item.text ? 'is-pulsing' : undefined}
+              onMouseEnter={() => triggerPulse(item.text)}
+              onFocus={() => triggerPulse(item.text)}
+              tabIndex={0}
             >
-              <span className="concept-list-text">{item}</span>
+              <span className="concept-list-text">{item.text}</span>
             </li>
           ))}
         </ul>

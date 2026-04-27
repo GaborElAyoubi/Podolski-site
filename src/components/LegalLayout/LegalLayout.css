@@ -1,5 +1,5 @@
 .legal-page {
-  padding: calc(var(--site-header-offset) + 4rem) 1rem 7rem;
+  padding: calc(var(--site-header-offset) + 4rem) var(--section-padding-inline) var(--section-padding-bottom);
 }
 
 .legal-page-inner {
@@ -33,7 +33,7 @@
   margin: 0;
   font-size: clamp(2.2rem, 5vw, 4rem);
   line-height: 1;
-  color: #4c251b;
+  color: var(--color-title);
 }
 
 @media (max-width: 640px) {

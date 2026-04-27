@@ -1,28 +1,6 @@
-.signup {
-  position: relative;
-  padding: 7rem 1rem 9rem;
-  display: flex;
-  justify-content: center;
-}
-
-.signup-card {
-  width: min(960px, 100%);
-  margin: 0 auto;
-  display: grid;
-  justify-items: center;
-  text-align: center;
-  gap: 1rem;
-}
-
 .signup-title {
-  margin: 0;
   max-width: 16ch;
-  font-family: var(--font-body);
-  font-size: clamp(2.7rem, 5vw, 4.6rem);
-  font-weight: 500;
   line-height: 1.05;
-  letter-spacing: 0;
-  color: var(--color-title);
 }
 
 .signup-text {
@@ -73,8 +51,8 @@
 
 .signup-date-select {
   width: 100%;
-  border: 1px solid rgba(47, 39, 37, 0.18);
-  border-radius: 4px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-field);
   padding: 0.75rem 0.9rem;
   background: rgba(255, 251, 246, 0.72);
   color: var(--color-ink);
@@ -122,10 +100,6 @@
 }
 
 @media (max-width: 640px) {
-  .signup {
-    padding: 2rem 1rem 3rem;
-  }
-
   .signup-details div {
     grid-template-columns: 1fr;
     gap: 0.15rem;
@@ -134,10 +108,6 @@
 }
 
 @media (max-width: 1366px), (max-height: 900px) {
-  .signup {
-    padding: 6rem 1rem 7rem;
-  }
-
   .signup-card {
     gap: 0.8rem;
   }

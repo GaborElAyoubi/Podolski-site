@@ -6,7 +6,7 @@
 .legal-section h2 {
   margin: 0;
   font-size: clamp(1.25rem, 2vw, 1.6rem);
-  color: #4c251b;
+  color: var(--color-title);
 }
 
 .legal-section p {

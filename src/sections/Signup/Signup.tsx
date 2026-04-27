@@ -6,38 +6,12 @@ import './Signup.css';
 
 type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-const provisionalDates = [
-  {
-    label: '1. Juli',
-    value: '2026-07-01',
-  },
-  {
-    label: '19. August',
-    value: '2026-08-19',
-  },
-  {
-    label: '16. September',
-    value: '2026-09-16',
-  },
-  {
-    label: '7. Oktober',
-    value: '2026-10-07',
-  },
-  {
-    label: '4. November',
-    value: '2026-11-04',
-  },
-  {
-    label: '2. Dezember',
-    value: '2026-12-02',
-  },
-];
-
 export function Signup() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const today = new Date().toISOString().split('T')[0];
   const [preferredDate, setPreferredDate] = useState(today);
+  const { signup } = siteContent;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,7 +22,7 @@ export function Signup() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch(siteContent.signup.endpoint, {
+      const response = await fetch(signup.endpoint, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -83,35 +57,32 @@ export function Signup() {
   };
 
   return (
-    <section className="signup" id="anmelden">
-      <div className="signup-card">
-        <h2 className="signup-title">Ich freue mich auf deine Nachricht.</h2>
-        <p className="signup-text">
-          Da die Anzahl Teilnehmer:innen beschränkt ist, bitte ich dich um eine
-          kurze verbindliche Anmeldung.
-        </p>
+    <section className="signup section-shell" id="anmelden">
+      <div className="signup-card section-stack">
+        <h2 className="signup-title section-title">{signup.title}</h2>
+        <p className="signup-text">{signup.text}</p>
 
         <dl className="signup-details">
           <div>
-            <dt>Zeit</dt>
-            <dd>19 - 21 Uhr</dd>
+            <dt>{signup.details.timeLabel}</dt>
+            <dd>{signup.details.timeValue}</dd>
           </div>
           <div>
-            <dt>Ort</dt>
-            <dd>Schloss Arbon, erste Tür rechts nach Haupteingang</dd>
+            <dt>{signup.details.locationLabel}</dt>
+            <dd>{signup.details.locationValue}</dd>
           </div>
           <div>
-            <dt>Prov. Daten</dt>
+            <dt>{signup.details.datesLabel}</dt>
             <dd>
               <label className="signup-date-select-label">
-                <span>Provisorisches Datum wählen</span>
+                <span>{signup.details.datesSelectLabel}</span>
                 <select
                   className="signup-date-select"
                   value={preferredDate}
                   onChange={(event) => setPreferredDate(event.target.value)}
                 >
-                  <option value={today}>Bitte wählen</option>
-                  {provisionalDates.map((date) => (
+                  <option value={today}>{signup.details.datesPlaceholder}</option>
+                  {signup.details.options.map((date) => (
                     <option key={date.value} value={date.value}>
                       {date.label}
                     </option>
@@ -135,14 +106,14 @@ export function Signup() {
           />
           <FormField
             kind="input"
-            label="Name"
+            label={signup.fields.nameLabel}
             name="name"
             autoComplete="name"
             required
           />
           <FormField
             kind="input"
-            label="Email"
+            label={signup.fields.emailLabel}
             name="email"
             type="email"
             autoComplete="email"
@@ -150,7 +121,7 @@ export function Signup() {
           />
           <FormField
             kind="input"
-            label="Wunschdatum"
+            label={signup.fields.preferredDateLabel}
             name="preferredDate"
             type="date"
             lang="de-CH"
@@ -160,14 +131,14 @@ export function Signup() {
           />
           <FormField
             kind="textarea"
-            label="Kurznachricht"
+            label={signup.fields.noteLabel}
             name="note"
             rows={3}
             required
           />
 
           <Button type="submit" disabled={submitStatus === 'submitting'}>
-            {submitStatus === 'submitting' ? 'Wird gesendet...' : 'Anmelden'}
+            {submitStatus === 'submitting' ? signup.fields.submittingLabel : signup.fields.submitLabel}
           </Button>
 
           {statusMessage && (

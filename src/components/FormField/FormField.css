@@ -8,8 +8,8 @@
 .form-field input,
 .form-field textarea {
   width: 100%;
-  border: 1px solid rgba(47, 39, 37, 0.18);
-  border-radius: 4px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-field);
   padding: 0.75rem 0.9rem;
   background: rgba(255, 251, 246, 0.72);
   color: var(--color-ink);
@@ -22,6 +22,6 @@
 
 .form-field input:focus,
 .form-field textarea:focus {
-  outline: 3px solid rgba(154, 102, 91, 0.24);
+  outline: var(--focus-outline);
   border-color: rgba(70, 49, 59, 0.55);
 }

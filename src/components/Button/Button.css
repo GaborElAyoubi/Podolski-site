@@ -1,6 +1,6 @@
 .button {
   border: 0;
-  border-radius: 4px;
+  border-radius: var(--radius-field);
   padding: 0.78rem 1.25rem;
   background: var(--color-plum);
   color: #fff7f0;
@@ -26,6 +26,6 @@
 }
 
 .button:focus-visible {
-  outline: 3px solid rgba(154, 102, 91, 0.34);
+  outline: var(--focus-outline);
   outline-offset: 3px;
 }

@@ -2,40 +2,13 @@
   --concept-progress: 0;
   --concept-top-space: 6.5rem;
   --concept-top-pull: 2.75rem;
-  position: relative;
-  padding: calc(var(--concept-top-space) - (var(--concept-top-pull) * var(--concept-progress))) 1rem 8rem;
-  display: flex;
-  justify-content: center;
-}
-
-.concept-card {
-  width: min(960px, 100%);
-  margin: 0 auto;
-  display: grid;
-  justify-items: center;
-  text-align: center;
+  padding-top: calc(var(--concept-top-space) - (var(--concept-top-pull) * var(--concept-progress)));
 }
 
 .concept-title {
   max-width: 14ch;
   margin-bottom: 1.75rem;
-  font-family: var(--font-body);
-  font-size: clamp(2.7rem, 5vw, 4.6rem);
-  font-weight: 500;
   line-height: 0.95;
-  letter-spacing: 0;
-  color: var(--color-title);
-}
-
-.concept-text {
-  max-width: 62ch;
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  line-height: 1.8;
-  color: rgba(65, 38, 29, 0.9);
-}
-
-.concept-text + .concept-text {
-  margin-top: 1rem;
 }
 
 .concept-list {
@@ -56,6 +29,8 @@
   font-size: clamp(1.05rem, 2.2vw, 1.32rem);
   line-height: 1.35;
   color: var(--color-muted);
+  border-radius: 1rem;
+  outline: none;
 }
 
 .concept-list-text {
@@ -71,6 +46,10 @@
   width: 2.7rem;
   height: 2.7rem;
   background: url("../../public/images/herz.png") center / contain no-repeat;
+}
+
+.concept-list li:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 243, 222, 0.26);
 }
 
 .concept-list li.is-pulsing .concept-list-text {
@@ -132,11 +111,6 @@
   .concept {
     --concept-top-space: 1.25rem;
     --concept-top-pull: 0.75rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .concept-card {
-    border-radius: 0;
   }
 
   .concept-title {
@@ -148,7 +122,6 @@
   .concept {
     --concept-top-space: 4.25rem;
     --concept-top-pull: 1.75rem;
-    padding-bottom: 7rem;
   }
 
   .concept-title {
