@@ -31,8 +31,8 @@ src/
 
 ## Erweiterungsideen
 
-### Formular konfigurieren
-Das Formular sendet an `/api/contact`. Der Node-Server in `server/index.mjs` verschickt die E-Mail über Resend.
+### Signup-Formular konfigurieren
+Das Formular sendet an `/api/contact`. Der Node-Server in `server/index.mjs` validiert `name`, `email`, `preferredDate` und `note` und verschickt die Anmeldung ueber Resend.
 
 Für Render als Web Service brauchst du diese Environment Variables:
 
@@ -45,6 +45,13 @@ MAIL_TO=deine-adresse@example.com
 Siehe auch `.env.example`.
 
 Sobald du eine eigene Absenderdomain bei Resend verifiziert hast, ersetzt du `MAIL_FROM` durch eine Adresse deiner Domain.
+
+Ablauf:
+
+- Nutzer:in fuellt das Formular im Frontend aus
+- React sendet die Daten per `fetch` an `/api/contact`
+- Der Node-Server prueft Eingaben, Honeypot und Rate-Limit
+- Resend verschickt die Anmeldung an `MAIL_TO`
 
 ### Inhalte pflegen
 Geteilte Inhalte wie Brand, Navigation und Formular-Konfiguration kommen aus `src/content/siteContent.ts`.
@@ -82,3 +89,4 @@ npm run build
 - Repo verbinden
 - Build Command: `npm run build`
 - Start Command: `npm run start`
+- Environment Variables in Render setzen: `RESEND_API_KEY`, `MAIL_FROM`, `MAIL_TO`

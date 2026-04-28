@@ -45,7 +45,8 @@
   gap: 0.25rem;
 }
 
-.signup-date-select-label span {
+.signup-date-select-label span,
+.signup-form .form-field span {
   font-weight: 700;
 }
 

@@ -9,8 +9,7 @@ type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 export function Signup() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [statusMessage, setStatusMessage] = useState('');
-  const today = new Date().toISOString().split('T')[0];
-  const [preferredDate, setPreferredDate] = useState(today);
+  const [preferredDate, setPreferredDate] = useState('');
   const { signup } = siteContent;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -43,7 +42,7 @@ export function Signup() {
       }
 
       form.reset();
-      setPreferredDate(today);
+      setPreferredDate('');
       setSubmitStatus('success');
       setStatusMessage(payload.message ?? 'Danke für deine Nachricht.');
     } catch (error) {
@@ -73,23 +72,7 @@ export function Signup() {
           </div>
           <div>
             <dt>{signup.details.datesLabel}</dt>
-            <dd>
-              <label className="signup-date-select-label">
-                <span>{signup.details.datesSelectLabel}</span>
-                <select
-                  className="signup-date-select"
-                  value={preferredDate}
-                  onChange={(event) => setPreferredDate(event.target.value)}
-                >
-                  <option value={today}>{signup.details.datesPlaceholder}</option>
-                  {signup.details.options.map((date) => (
-                    <option key={date.value} value={date.value}>
-                      {date.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </dd>
+            <dd>{signup.details.options.map((date) => date.label).join(' / ')}</dd>
           </div>
         </dl>
 
@@ -119,16 +102,23 @@ export function Signup() {
             autoComplete="email"
             required
           />
-          <FormField
-            kind="input"
-            label={signup.fields.preferredDateLabel}
-            name="preferredDate"
-            type="date"
-            lang="de-CH"
-            min={today}
-            value={preferredDate}
-            onChange={(event) => setPreferredDate(event.target.value)}
-          />
+          <label className="form-field">
+            <span>{signup.fields.preferredDateLabel}</span>
+            <select
+              className="signup-date-select"
+              name="preferredDate"
+              value={preferredDate}
+              onChange={(event) => setPreferredDate(event.target.value)}
+              required
+            >
+              <option value="">{signup.details.datesPlaceholder}</option>
+              {signup.details.options.map((date) => (
+                <option key={date.value} value={date.value}>
+                  {date.label}
+                </option>
+              ))}
+            </select>
+          </label>
           <FormField
             kind="textarea"
             label={signup.fields.noteLabel}

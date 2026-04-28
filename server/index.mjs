@@ -77,6 +77,7 @@ function isValidEmail(email) {
 function validateContactPayload(payload) {
   const name = String(payload.name ?? '').trim();
   const email = String(payload.email ?? '').trim();
+  const preferredDate = String(payload.preferredDate ?? '').trim();
   const note = String(payload.note ?? '').trim();
   const website = String(payload.website ?? '').trim();
 
@@ -84,7 +85,7 @@ function validateContactPayload(payload) {
     return { ok: true, spam: true };
   }
 
-  if (!name || !email || !note) {
+  if (!name || !email || !preferredDate || !note) {
     return { ok: false, error: 'Bitte fülle alle Felder aus.' };
   }
 
@@ -92,10 +93,13 @@ function validateContactPayload(payload) {
     return { ok: false, error: 'Bitte gib eine gültige E-Mail-Adresse ein.' };
   }
 
-  return { ok: true, data: { name, email, note } };
+  return {
+    ok: true,
+    data: { name, email, preferredDate, note },
+  };
 }
 
-async function sendContactEmail({ name, email, note }) {
+async function sendContactEmail({ name, email, preferredDate, note }) {
   const apiKey = process.env.RESEND_API_KEY;
   const mailTo = process.env.MAIL_TO;
   const mailFrom = process.env.MAIL_FROM;
@@ -114,12 +118,13 @@ async function sendContactEmail({ name, email, note }) {
       from: mailFrom,
       to: [mailTo],
       reply_to: email,
-      subject: 'Neue Anmeldung über die Website',
+      subject: 'Neue Anmeldung ueber die Website',
       text: [
-        'Neue Anmeldung über die Website',
+        'Neue Anmeldung ueber die Website',
         '',
         `Name: ${name}`,
         `E-Mail: ${email}`,
+        `Wunschdatum: ${preferredDate}`,
         '',
         'Kurznachricht:',
         note,
@@ -162,11 +167,13 @@ async function handleContactRequest(request, response) {
     }
 
     await sendContactEmail(validation.data);
-    sendJson(response, 200, { message: 'Danke für deine Nachricht.' });
+    sendJson(response, 200, {
+      message: 'Danke fuer deine Anmeldung. Ich melde mich bald bei dir.',
+    });
   } catch (error) {
     console.error(error);
     sendJson(response, 500, {
-      message: 'Die Nachricht konnte nicht gesendet werden.',
+      message: 'Die Anmeldung konnte nicht gesendet werden.',
     });
   }
 }
