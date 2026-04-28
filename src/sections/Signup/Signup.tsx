@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { Button } from '@/components/Button/Button';
 import { FormField } from '@/components/FormField/FormField';
 import { siteContent } from '@/content/siteContent';
@@ -10,7 +10,26 @@ export function Signup() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [preferredDate, setPreferredDate] = useState('');
+  const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const { signup } = siteContent;
+
+  useEffect(() => {
+    if (!isSuccessDialogOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsSuccessDialogOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isSuccessDialogOpen]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,8 +64,10 @@ export function Signup() {
       setPreferredDate('');
       setSubmitStatus('success');
       setStatusMessage(payload.message ?? 'Danke für deine Nachricht.');
+      setIsSuccessDialogOpen(true);
     } catch (error) {
       setSubmitStatus('error');
+      setIsSuccessDialogOpen(false);
       setStatusMessage(
         error instanceof Error
           ? error.message
@@ -131,7 +152,7 @@ export function Signup() {
             {submitStatus === 'submitting' ? signup.fields.submittingLabel : signup.fields.submitLabel}
           </Button>
 
-          {statusMessage && (
+          {statusMessage && submitStatus !== 'success' && (
             <p
               className={`signup-status signup-status-${submitStatus}`}
               role={submitStatus === 'error' ? 'alert' : 'status'}
@@ -142,6 +163,30 @@ export function Signup() {
           )}
         </form>
       </div>
+
+      {isSuccessDialogOpen && (
+        <div
+          className="signup-dialog-backdrop"
+          role="presentation"
+          onClick={() => setIsSuccessDialogOpen(false)}
+        >
+          <div
+            className="signup-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="signup-success-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h3 className="signup-dialog-title" id="signup-success-title">
+              {signup.fields.successDialogTitle}
+            </h3>
+            <p className="signup-dialog-text">{statusMessage}</p>
+            <Button type="button" onClick={() => setIsSuccessDialogOpen(false)}>
+              {signup.fields.successDialogCloseLabel}
+            </Button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
