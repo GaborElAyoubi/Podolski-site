@@ -70,10 +70,6 @@ export function Signup() {
             <dt>{signup.details.locationLabel}</dt>
             <dd>{signup.details.locationValue}</dd>
           </div>
-          <div>
-            <dt>{signup.details.datesLabel}</dt>
-            <dd>{signup.details.options.map((date) => date.label).join(' / ')}</dd>
-          </div>
         </dl>
 
         <form

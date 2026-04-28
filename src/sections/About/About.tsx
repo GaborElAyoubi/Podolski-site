@@ -9,8 +9,6 @@ export function About() {
       <div className="about-card section-stack">
         <h2 className="about-title section-title">{about.title}</h2>
 
-        <h3 className="about-lede">{about.lede}</h3>
-
         <div className="about-body">
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>

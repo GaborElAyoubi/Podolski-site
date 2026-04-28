@@ -62,8 +62,6 @@ export const siteContent = {
       timeValue: '19 - 21 Uhr',
       locationLabel: 'Ort',
       locationValue: 'Schloss Arbon, erste Tür rechts nach Haupteingang',
-      datesLabel: 'Prov. Daten',
-      datesSelectLabel: 'Provisorisches Datum wählen',
       datesPlaceholder: 'Bitte wählen',
       options: [
         { label: '1. Juli', value: '2026-07-01' },
@@ -86,11 +84,10 @@ export const siteContent = {
   },
   about: {
     title: 'Entstehung',
-    lede: 'BERÜHREN ..... Berühren, berührt sein, berührt werden',
     paragraphs: [
       'Einen Grossteil meines Lebens habe ich in meinen Schattenseiten verbracht. Dadurch haben sich wunderbare - wenn auch schmerzvolle - Ereignisse, Begegnungen, Konfrontationen und Möglichkeiten ergeben, genau hinzusehen, zu erkennen und zu transformieren. Ein langer oftmals beschwerlicher, aber auch immer wieder lichtvoller Weg gehört nun zu meiner Geschichte.',
       'Seit Jahren spüre ich den Ruf nach Berührung im Sinne von Berührt-sein. Nach einem etwas zaghaften «Ja» haben sich mir einige Türen geöffnet und ich durfte in Felder eintauchen, die mich näher zu mir brachten und mich aus der Komfortzone geführt haben.',
-      'Ein Lebensereignis hat sich mir im Rückblick als ein grosser Segen offenbart. So war es mir endlich möglich ganz «JA» zu sagen. Ein klarer Ruf nach Berührung und danach, diese Erfahrung anderen Seelen zugänglich zu machen hat sich mir offenbart. Es ist ein «Ja» dazu, Berührung in die Welt zu tragen!',
+      'Ein Lebensereignis hat sich mir im Rückblick als ein grosser Segen offenbart. So war es mir endlich möglich ganz «Ja» zu sagen. Ein klarer Ruf nach Berührung und danach, diese Erfahrung anderen Seelen zugänglich zu machen hat sich mir offenbart. Es ist ein «Ja» dazu, Berührung in die Welt zu tragen!',
     ],
     thanks: 'Danke, danke, danke.',
   },
