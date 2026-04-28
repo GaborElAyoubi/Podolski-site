@@ -8,7 +8,6 @@ type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export function Signup() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
-  const [statusMessage, setStatusMessage] = useState('');
   const [preferredDate, setPreferredDate] = useState('');
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
   const { signup } = siteContent;
@@ -34,7 +33,6 @@ export function Signup() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitStatus('submitting');
-    setStatusMessage(signup.fields.pendingMessage);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -63,16 +61,10 @@ export function Signup() {
       form.reset();
       setPreferredDate('');
       setSubmitStatus('success');
-      setStatusMessage(payload.message ?? 'Danke für deine Nachricht.');
       setIsSuccessDialogOpen(true);
     } catch (error) {
       setSubmitStatus('error');
       setIsSuccessDialogOpen(false);
-      setStatusMessage(
-        error instanceof Error
-          ? error.message
-          : 'Die Nachricht konnte nicht gesendet werden.',
-      );
     }
   };
 

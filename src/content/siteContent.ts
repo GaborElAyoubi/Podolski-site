@@ -79,7 +79,6 @@ export const siteContent = {
       noteLabel: 'Kurznachricht',
       submitLabel: 'Anmelden',
       submittingLabel: 'Wird gesendet...',
-      pendingMessage: 'Deine Anmeldung wird gerade gesendet.',
       successDialogTitle: 'Anmeldung gesendet',
       successDialogCloseLabel: 'Verstanden',
     },
