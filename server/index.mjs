@@ -168,7 +168,7 @@ async function handleContactRequest(request, response) {
 
     await sendContactEmail(validation.data);
     sendJson(response, 200, {
-      message: 'Danke fuer deine Anmeldung. Ich melde mich bald bei dir.',
+      message: 'Danke für deine Anmeldung. Ich melde mich bald bei dir.',
     });
   } catch (error) {
     console.error(error);
