@@ -17,7 +17,6 @@ export function Hero({ progress }: HeroProps) {
         <img className="hero-backdrop-feather" src={featherImage} alt="" aria-hidden="true" />
 
         <div className="hero-center">
-          <p className="hero-kicker">{hero.kicker}</p>
           <h1 className="hero-title">{hero.title}</h1>
           <p className="hero-lede">{hero.lede}</p>
 

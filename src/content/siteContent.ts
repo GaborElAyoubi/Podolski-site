@@ -29,9 +29,8 @@ export const siteContent = {
     },
   ] satisfies NavigationItem[],
   hero: {
-    kicker: 'Achtsame Begegnung in Arbon',
     title: 'Berührung',
-    lede: 'Ein Abend für Präsenz, innere Ruhe und Begegnung auf Herzebene.',
+    lede: 'Berühren, berührt sein, berührt werden',
     meta: ['19 - 21 Uhr', 'Schloss Arbon'],
     actions: {
       primary: {

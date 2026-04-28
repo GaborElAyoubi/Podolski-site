@@ -55,15 +55,6 @@
   will-change: transform;
 }
 
-.hero-kicker {
-  margin: 0;
-  color: rgba(248, 240, 232, 0.72);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
 .hero-title {
   display: inline-block;
   max-width: 9ch;
@@ -179,11 +170,6 @@
   .hero-center {
     justify-items: start;
     gap: 0.85rem;
-  }
-
-  .hero-kicker {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
   }
 
   .hero-title {
