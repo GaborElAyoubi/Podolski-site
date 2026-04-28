@@ -63,8 +63,13 @@ export function Signup() {
       setSubmitStatus('success');
       setIsSuccessDialogOpen(true);
     } catch (error) {
-      setSubmitStatus('error');
+      setSubmitStatus('idle');
       setIsSuccessDialogOpen(false);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : 'Die Anmeldung konnte nicht gesendet werden.',
+      );
     }
   };
 
@@ -143,16 +148,6 @@ export function Signup() {
           >
             {submitStatus === 'submitting' ? signup.fields.submittingLabel : signup.fields.submitLabel}
           </Button>
-
-          {statusMessage && submitStatus !== 'success' && (
-            <p
-              className={`signup-status signup-status-${submitStatus}`}
-              role={submitStatus === 'error' ? 'alert' : 'status'}
-              aria-live="polite"
-            >
-              {statusMessage}
-            </p>
-          )}
         </form>
       </div>
 
@@ -172,7 +167,6 @@ export function Signup() {
             <h3 className="signup-dialog-title" id="signup-success-title">
               {signup.fields.successDialogTitle}
             </h3>
-            <p className="signup-dialog-text">{statusMessage}</p>
             <Button type="button" onClick={() => setIsSuccessDialogOpen(false)}>
               {signup.fields.successDialogCloseLabel}
             </Button>

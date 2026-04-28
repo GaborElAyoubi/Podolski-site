@@ -144,6 +144,37 @@
   border-color: rgba(248, 240, 232, 0.42);
 }
 
+@media (min-width: 1600px) and (max-height: 1100px) {
+  .hero-sticky {
+    padding: 3rem 3.25rem;
+  }
+
+  .hero-center {
+    gap: 0.95rem;
+    width: min(900px, 100%);
+  }
+
+  .hero-title {
+    font-size: clamp(4.4rem, 8vw, 7.4rem);
+  }
+
+  .hero-lede {
+    max-width: 31rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero-meta {
+    font-size: 0.95rem;
+  }
+
+  .hero-action {
+    min-height: 2.55rem;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 1366px), (max-height: 900px) {
   .hero-center {
     gap: 1rem;

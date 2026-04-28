@@ -86,24 +86,6 @@
   opacity: 0;
 }
 
-.signup-status {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.signup-status-submitting {
-  color: var(--color-muted);
-}
-
-.signup-status-success {
-  color: #2f4f25;
-}
-
-.signup-status-error {
-  color: #7a1f1f;
-}
-
 .signup-dialog-backdrop {
   position: fixed;
   inset: 0;
@@ -146,6 +128,27 @@
 .signup-dialog .button {
   justify-self: center;
   min-width: 10rem;
+}
+
+@media (min-width: 1600px) and (max-height: 1100px) {
+  .signup-text {
+    font-size: 0.96rem;
+    line-height: 1.62;
+  }
+
+  .signup-details {
+    gap: 0.45rem;
+  }
+
+  .signup-form {
+    gap: 0.7rem;
+  }
+
+  .signup-dialog {
+    width: min(29rem, 100%);
+    gap: 0.85rem;
+    padding: 1.3rem;
+  }
 }
 
 @media (max-width: 640px) {

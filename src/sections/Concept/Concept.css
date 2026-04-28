@@ -107,6 +107,31 @@
   }
 }
 
+@media (min-width: 1600px) and (max-height: 1100px) {
+  .concept {
+    --concept-top-space: 5rem;
+    --concept-top-pull: 1.8rem;
+  }
+
+  .concept-title {
+    margin-bottom: 1.1rem;
+  }
+
+  .concept-list {
+    gap: 0.55rem;
+  }
+
+  .concept-list li {
+    font-size: clamp(0.95rem, 1.35vw, 1.08rem);
+    line-height: 1.28;
+  }
+
+  .concept-list li::before {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}
+
 @media (max-width: 640px) {
   .concept {
     --concept-top-space: 1.25rem;
