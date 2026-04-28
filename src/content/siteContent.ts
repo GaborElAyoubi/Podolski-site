@@ -79,6 +79,7 @@ export const siteContent = {
       noteLabel: 'Kurznachricht',
       submitLabel: 'Anmelden',
       submittingLabel: 'Wird gesendet...',
+      pendingMessage: 'Deine Anmeldung wird gerade gesendet.',
     },
     endpoint: '/api/contact',
   },

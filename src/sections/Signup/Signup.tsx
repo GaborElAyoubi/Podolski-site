@@ -15,7 +15,7 @@ export function Signup() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitStatus('submitting');
-    setStatusMessage('');
+    setStatusMessage(signup.fields.pendingMessage);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -123,7 +123,11 @@ export function Signup() {
             required
           />
 
-          <Button type="submit" disabled={submitStatus === 'submitting'}>
+          <Button
+            type="submit"
+            disabled={submitStatus === 'submitting'}
+            className={submitStatus === 'submitting' ? 'button-loading' : ''}
+          >
             {submitStatus === 'submitting' ? signup.fields.submittingLabel : signup.fields.submitLabel}
           </Button>
 

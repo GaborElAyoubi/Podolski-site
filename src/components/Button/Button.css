@@ -1,4 +1,8 @@
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
   border: 0;
   border-radius: var(--radius-field);
   padding: 0.78rem 1.25rem;
@@ -28,4 +32,20 @@
 .button:focus-visible {
   outline: var(--focus-outline);
   outline-offset: 3px;
+}
+
+.button-loading::after {
+  content: "";
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 2px solid rgba(255, 247, 240, 0.35);
+  border-top-color: #fff7f0;
+  border-radius: 999px;
+  animation: button-spin 700ms linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

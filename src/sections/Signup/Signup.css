@@ -92,6 +92,10 @@
   line-height: 1.5;
 }
 
+.signup-status-submitting {
+  color: var(--color-muted);
+}
+
 .signup-status-success {
   color: #2f4f25;
 }
