@@ -29,7 +29,6 @@
 html {
   font-size: 110%;
   scroll-behavior: smooth;
-  background-color: #8b2fa8;
   scroll-padding-top: var(--site-header-offset);
 }
 
